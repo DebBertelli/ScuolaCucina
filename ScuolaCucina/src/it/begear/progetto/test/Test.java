@@ -50,8 +50,7 @@ public class Test {
 		return utenti;
 
 	}
-<<<<<<< HEAD
-	
+
 	public static List<Docenti> read2() {
 		Session session = getSessionFactory().openSession();
 		@SuppressWarnings("unchecked")
@@ -61,8 +60,6 @@ public class Test {
 		return docenti;
 
 	}	
-=======
->>>>>>> branch 'master' of https://github.com/DebBertelli/ScuolaCucina.git
 
 	public static List<Amministratori> leggiAdmin() {
 		Session session = getSessionFactory().openSession();

@@ -18,6 +18,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
+
 public class Corsi {
 
 	@Id

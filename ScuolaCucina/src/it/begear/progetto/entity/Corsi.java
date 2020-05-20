@@ -22,9 +22,9 @@ import lombok.ToString;
 public class Corsi {
 
 	@Id
-	  @GeneratedValue(strategy = GenerationType.IDENTITY)
-	  @Column(name = "id_corsi")
-	  private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_corsi")
+    private int id;
 	
     @Column(name="titolo")
 	private String titolo;

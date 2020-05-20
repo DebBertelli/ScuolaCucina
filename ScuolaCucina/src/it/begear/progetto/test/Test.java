@@ -9,6 +9,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import it.begear.progetto.entity.Docenti;
+import it.begear.progetto.entity.Amministratori;
 import it.begear.progetto.entity.Utenti;
 
 
@@ -17,9 +19,18 @@ public class Test {
 
 	public static void main(String[] args) {
 		
-		List<Utenti> listaUtenti = read();
+		/*List<Utenti> listaUtenti = read();
 		for(Utenti user: listaUtenti) {
 			System.out.println(user.toString());
+		}*/
+		
+		List<Docenti> listaDocenti = read2();
+		for(Docenti docente: listaDocenti) {
+			System.out.println(docente.toString());
+		}
+		List<Amministratori> listaAdmin = leggiAdmin();
+		for (Amministratori admin : listaAdmin) {
+			System.out.println(admin.toString());
 		}
 	}
 	
@@ -39,5 +50,25 @@ public class Test {
 		return utenti;
 
 	}
+	
+	public static List<Docenti> read2() {
+		Session session = getSessionFactory().openSession();
+		@SuppressWarnings("unchecked")
+		List<Docenti> docenti = session.createQuery("FROM Docenti").list();
+		session.close();
+		System.out.println("Trovati " + docenti.size() + " docenti");
+		return docenti;
+
+	}
+	public static List<Amministratori> leggiAdmin() {
+		Session session = getSessionFactory().openSession();
+		@SuppressWarnings("unchecked")
+		List<Amministratori> admin = session.createQuery("FROM Amministratori").list();
+		session.close();
+		System.out.println("Trovati " + admin.size() + " amministratori");
+		return admin;
+
+	}
+
 
 }

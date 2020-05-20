@@ -13,10 +13,11 @@ import it.begear.progetto.entity.Amministratori;
 import it.begear.progetto.entity.Docenti;
 import it.begear.progetto.entity.Utenti;
 
+
+
 public class Test {
 
 	public static void main(String[] args) {
-
 		/*List<Utenti> listaUtenti = read();
 		for(Utenti user: listaUtenti) {
 			System.out.println(user.toString());

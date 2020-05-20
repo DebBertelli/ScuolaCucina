@@ -37,4 +37,6 @@ public class Corsi {
     @Column(name="max_partecipanti")
 	private int maxPartecipanti;
     
+   
+    
 }

@@ -13,10 +13,11 @@ import it.begear.progetto.entity.Amministratori;
 import it.begear.progetto.entity.Docenti;
 import it.begear.progetto.entity.Utenti;
 
+
+
 public class Test {
 
 	public static void main(String[] args) {
-
 		/*List<Utenti> listaUtenti = read();
 		for(Utenti user: listaUtenti) {
 			System.out.println(user.toString());
@@ -49,6 +50,16 @@ public class Test {
 		return utenti;
 
 	}
+	
+	public static List<Docenti> read2() {
+		Session session = getSessionFactory().openSession();
+		@SuppressWarnings("unchecked")
+		List<Docenti> docenti = session.createQuery("FROM Docenti").list();
+		session.close();
+		System.out.println("Trovati " + docenti.size() + " docenti");
+		return docenti;
+
+	}	
 
 	public static List<Amministratori> leggiAdmin() {
 		Session session = getSessionFactory().openSession();

@@ -8,10 +8,11 @@
    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
    <property name="hibernate.connection.url">jdbc:mysql://localhost/scuolacucina</property>
    <property name="hibernate.connection.username">root</property>
-   <property name="hibernate.connection.password">r00t</property>
+   <property name="hibernate.connection.password">root</property>
    <property name="hibernate.connection.serverTimezone">UTC</property>
    <property name="hibernate.hbm2ddl.auto">update</property>
    <property name="show_sql">false</property>
    <mapping class="it.begear.progetto.entity.Utenti"/>
+   <mapping class="it.begear.progetto.entity.Docenti"/>
 </session-factory>
 </hibernate-configuration>

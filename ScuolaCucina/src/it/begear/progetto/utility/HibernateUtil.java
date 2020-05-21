@@ -1,4 +1,4 @@
-package it.begear.progetto.dao;
+package it.begear.progetto.utility;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

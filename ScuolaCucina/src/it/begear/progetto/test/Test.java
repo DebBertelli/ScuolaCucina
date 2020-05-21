@@ -8,9 +8,9 @@ import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import it.begear.progetto.entity.Docenti;
-import it.begear.progetto.entity.Amministratori;
-import it.begear.progetto.entity.Utenti;
+import it.begear.progetto.entity.Docente;
+import it.begear.progetto.entity.Amministratore;
+import it.begear.progetto.entity.Utente;
 
 
 
@@ -23,13 +23,13 @@ public class Test {
 			System.out.println(user.toString());
 		}*/
 		
-		List<Docenti> listaDocenti = read2();
-		for(Docenti docente: listaDocenti) {
+		List<Docente> listaDocenti = read2();
+		for(Docente docente: listaDocenti) {
 			System.out.println(docente.toString());
 		}
 
-		List<Amministratori> listaAdmin = leggiAdmin();
-		for (Amministratori admin : listaAdmin) {
+		List<Amministratore> listaAdmin = leggiAdmin();
+		for (Amministratore admin : listaAdmin) {
 			System.out.println(admin.toString());
 		}
 	}
@@ -41,20 +41,20 @@ public class Test {
 		return sFactory;
 	}
 
-	public static List<Utenti> read() {
+	public static List<Utente> read() {
 		Session session = getSessionFactory().openSession();
 		@SuppressWarnings("unchecked")
-		List<Utenti> utenti = session.createQuery("FROM Utenti").list();
+		List<Utente> utenti = session.createQuery("FROM Utente").list();
 		session.close();
 		System.out.println("Trovati " + utenti.size() + " utenti");
 		return utenti;
 
 	}
 	
-	public static List<Amministratori> leggiAdmin() {
+	public static List<Amministratore> leggiAdmin() {
 		Session session = getSessionFactory().openSession();
 		@SuppressWarnings("unchecked")
-		List<Amministratori> admin = session.createQuery("FROM Amministratori").list();
+		List<Amministratore> admin = session.createQuery("FROM Amministratore").list();
 		session.close();
 		System.out.println("Trovati " + admin.size() + " amministratori");
 		return admin;
@@ -62,10 +62,10 @@ public class Test {
 	}
 
 
-	public static List<Docenti> read2() {
+	public static List<Docente> read2() {
 		Session session = getSessionFactory().openSession();
 		@SuppressWarnings("unchecked")
-		List<Docenti> docenti = session.createQuery("FROM Docenti").list();
+		List<Docente> docenti = session.createQuery("FROM Docente").list();
 		session.close();
 		System.out.println("Trovati " + docenti.size() + " docenti");
 		return docenti;

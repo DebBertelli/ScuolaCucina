@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Amministratori {
+public class Amministratore {
 	 @Id
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
 	  @Column(name = "id_admin")

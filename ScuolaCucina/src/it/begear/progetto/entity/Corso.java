@@ -19,7 +19,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 
-public class Corsi {
+public class Corso {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,7 +33,7 @@ public class Corsi {
 	private int durata;
     
     @Column(name="id_docente")
-	private String docenti;
+	private String docente;
     
     @Column(name="max_partecipanti")
 	private int maxPartecipanti;

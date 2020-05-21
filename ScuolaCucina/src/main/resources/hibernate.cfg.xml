@@ -12,9 +12,9 @@
    <property name="hibernate.connection.serverTimezone">UTC</property>
    <property name="hibernate.hbm2ddl.auto">update</property>
    <property name="show_sql">false</property>
-   <mapping class="it.begear.progetto.entity.Utenti"/>
-   <mapping class="it.begear.progetto.entity.Amministratori"/>
-   <mapping class="it.begear.progetto.entity.Docenti"/>
-   <mapping class="it.begear.progetto.entity.Corsi"/>
+   <mapping class="it.begear.progetto.entity.Utente"/>
+   <mapping class="it.begear.progetto.entity.Amministratore"/>
+   <mapping class="it.begear.progetto.entity.Docente"/>
+   <mapping class="it.begear.progetto.entity.Corso"/>
 </session-factory>
 </hibernate-configuration>

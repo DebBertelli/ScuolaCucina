@@ -13,7 +13,7 @@ import it.begear.progetto.utility.HibernateUtil;
 
 public class DocenteDAO {
 
-	public void salvaDocente(Docente d) {
+	public static void salvaDocente(Docente d) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			transaction = session.beginTransaction();

@@ -1,23 +1,21 @@
 package it.begear.progetto.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Entity
+@Table(name = "corsi")
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
+@NoArgsConstructor
+@Data
 
 public class Corso {
 
@@ -33,7 +31,7 @@ public class Corso {
 	private int durata;
     
     @Column(name="id_docente")
-	private String docente;
+	private int docente;
     
     @Column(name="max_partecipanti")
 	private int maxPartecipanti;

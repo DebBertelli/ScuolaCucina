@@ -78,7 +78,6 @@ public class DocenteDAO implements DocenteDAOI {
 			d = session.get(Docente.class, id_docente);
 			session.delete(d);
 			transaction.commit();
-			session.clear();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();

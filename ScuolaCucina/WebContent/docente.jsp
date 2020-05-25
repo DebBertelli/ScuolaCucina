@@ -11,6 +11,7 @@
 <title>Docenti</title>
 </head>
 <body>
+<a href="index.jsp">Torna alla home</a>
 <h1>Il nostro corpo docenti</h1>
 <p>
 <%

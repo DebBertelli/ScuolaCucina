@@ -9,9 +9,9 @@ import org.hibernate.query.Query;
 import it.begear.progetto.entity.Docente;
 import it.begear.progetto.utility.HibernateUtil;
 
-public class DocenteDAO {
+public class DocenteDAO implements DocenteDAOI {
 
-	public static void salvaDocente(Docente d) {
+	public void salvaDocente(Docente d) {
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			transaction = session.beginTransaction();
@@ -78,6 +78,7 @@ public class DocenteDAO {
 			d = session.get(Docente.class, id_docente);
 			session.delete(d);
 			transaction.commit();
+			session.clear();
 		} catch (Exception e) {
 			if (transaction != null) {
 				transaction.rollback();

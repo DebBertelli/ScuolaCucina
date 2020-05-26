@@ -4,9 +4,7 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import it.begear.progetto.entity.Corso;
-import it.begear.progetto.entity.Docente;
 import it.begear.progetto.utility.HibernateUtil;
-import net.bytebuddy.asm.Advice.Return;
 
 public class CorsoDAO {
 
@@ -60,20 +58,21 @@ public class CorsoDAO {
 		}
 		return corso;
 	} // leggiCorso() per id
-	
 
-	public Corso leggiCorso(String titolo) {
-		Corso corso = null;
+	@SuppressWarnings("unchecked")
+	public List<Corso> leggiCorso(String titolo) {
+		List<Corso> corsi = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-			corso = session.get(Corso.class, titolo);
+			corsi = session.createQuery("FROM Corso WHERE titolo = :titolo").setParameter("titolo", titolo).list();
 		} catch (Exception e) {
 			throw e;
 		}
-		return corso;
-	}
+		return corsi;
+		// lista di corsi con quel titolo
+	} // leggiCorso() per titolo
 
 	@SuppressWarnings("unchecked")
-	public static List<Corso> leggiTutti() {
+	public List<Corso> leggiTutti() {
 		List<Corso> corsi = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			corsi = session.createQuery("FROM Corso").list();

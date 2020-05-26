@@ -28,10 +28,10 @@ public class Corso {
 	private String titolo;
     
     @Column(name="ore")
-	private int durata;
+	private int ore;
     
     @Column(name="id_docente")
-	private int docente;
+	private int id_docente;
     
     @Column(name="max_partecipanti")
 	private int maxPartecipanti;

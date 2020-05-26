@@ -1,6 +1,8 @@
 package it.begear.progetto.service;
 
 import java.util.List;
+
+
 import it.begear.progetto.dao.DocenteDAO;
 import it.begear.progetto.entity.Docente;
 
@@ -9,7 +11,10 @@ public class DocenteService {
 	private static DocenteDAO d = new DocenteDAO();
 
 	// Inserisci
-	public static void inserisci(Docente docente) {
+	public static void inserisci(Docente docente, String nome, String cognome, String email) {
+		docente.setNome_docente(nome);
+		docente.setCognome_docente(cognome);
+		docente.setEmail_docente(email);
 		d.salvaDocente(docente);
 	}
 

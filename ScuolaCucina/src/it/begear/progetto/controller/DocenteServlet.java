@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.begear.progetto.entity.Docente;
 import it.begear.progetto.service.DocenteService;
 
 /**
@@ -34,6 +35,17 @@ public class DocenteServlet extends HttpServlet {
 		if (azione.equals("elimina")) {
 			int id_docente = Integer.parseInt(request.getParameter("id_docente"));
 			DocenteService.elimina(id_docente);
+			response.sendRedirect("docente.jsp");
+		}
+		
+		else if(azione.equals("inserisci")) {
+			Docente d = new Docente();
+			String nome_docente = request.getParameter("nome_docente");
+			String cognome_docente = request.getParameter("cognome_docente");
+			String email_docente = request.getParameter("email_docente");
+			DocenteService.inserisci(d, nome_docente, cognome_docente, email_docente);
+			response.sendRedirect("docente.jsp");
+
 		}
 
 	}

@@ -33,6 +33,6 @@
 	<%
 		}
 	%>
-
+			<a href="inserisciDocente.jsp?">&rarr; Inserisci un nuovo docente</a>
 </body>
 </html>

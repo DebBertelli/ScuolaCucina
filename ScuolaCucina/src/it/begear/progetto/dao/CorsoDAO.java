@@ -72,7 +72,7 @@ public class CorsoDAO {
 	} // leggiCorso() per titolo
 
 	@SuppressWarnings("unchecked")
-	public List<Corso> leggiTutti() {
+	public static List<Corso> leggiTutti() {
 		List<Corso> corsi = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 			corsi = session.createQuery("FROM Corso").list();

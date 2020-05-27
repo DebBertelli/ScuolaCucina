@@ -48,6 +48,23 @@ public class DocenteServlet extends HttpServlet {
 
 		}
 
+		else if(azione.equals("aggiorna")) {
+			
+			int id_docente=Integer.parseInt(request.getParameter("id_docente"));
+			
+			String nome_docente = request.getParameter("nome_docente");
+
+		String cognome_docente = request.getParameter("cognome_docente");
+
+			String email_docente = request.getParameter("email_docente");
+
+		DocenteService.aggiorna(id_docente, nome_docente, cognome_docente, email_docente);
+
+		response.sendRedirect("docente.jsp");
+
+
+		}
+
 	}
 
 	/**

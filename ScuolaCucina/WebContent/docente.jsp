@@ -21,7 +21,7 @@
 
 		<a href="homeDocente.jsp?id_docente=<%=d.getId_docente()%>"><%=d.getNome_docente()%>
 		<%=d.getCognome_docente()%></a>
-		<%=d.getEmail_docente()%>
+		
 
 		<form action="docente-servlet" method="get">
 			<input type="hidden" name="id_docente" value="<%=d.getId_docente()%>">

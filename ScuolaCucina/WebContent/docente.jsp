@@ -19,20 +19,21 @@
 			for (Docente d : docenti) {
 		%>
 
-		<%=d.getNome_docente()%>
-		<%=d.getCognome_docente()%>
-		<%=d.getEmail_docente()%>
-	<form action="docente-servlet" method="get">
-		<input type="hidden" name="id_docente" value="<%=d.getId_docente()%>">
-		<input type="hidden" name="azione" value="elimina"> <input
-			type="submit" value="&times;"
-			class="btn btn-outline-warning rounded-pill">
-	</form>
+		<a href="homeDocente.jsp?id_docente=<%=d.getId_docente()%>"><%=d.getNome_docente()%>
+		<%=d.getCognome_docente()%></a>
+		
+
+		<form action="docente-servlet" method="get">
+			<input type="hidden" name="id_docente" value="<%=d.getId_docente()%>">
+			<input type="hidden" name="azione" value="elimina"> <input
+				type="submit" value="&times;"
+				class="btn btn-outline-warning rounded-pill">
+		</form>
 	</div>
 
 	<%
 		}
 	%>
-			<a href="inserisciDocente.jsp?">&rarr; Inserisci un nuovo docente</a>
+	<a href="inserisciDocente.jsp?">&rarr; Inserisci un nuovo docente</a>
 </body>
 </html>

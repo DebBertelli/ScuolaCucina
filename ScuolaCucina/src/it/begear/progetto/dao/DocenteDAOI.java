@@ -12,7 +12,7 @@ public interface DocenteDAOI {
 	Docente leggiDocente(int id_docente); //cerca per id
 	List<Docente> leggiDocente(String cognome_docente); //cerca per cognome (restituisce lista di docenti con quel cognome)
 
-	//UPDATE
+//	//UPDATE
 	void aggiornaDocente(Docente d); 
 	
 	//DELETE

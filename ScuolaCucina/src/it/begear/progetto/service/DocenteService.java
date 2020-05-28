@@ -28,14 +28,12 @@ public class DocenteService {
 	}
 
 	// Aggiorna
-	public static void aggiorna(int id_docente, String nome_docente, String cognome_docente, String email_docente) {
-		Docente d = doc.leggiDocente(id_docente);
-		d.getId_docente();
-		d.setNome_docente(nome_docente);
-		d.setCognome_docente(cognome_docente);
-		d.setEmail_docente(email_docente);
-		doc.aggiornaDocente(d);
-	}
+//	public static void aggiorna(Docente docente, String nome, String cognome, String email) {
+//		docente.setNome_docente(nome);
+//		docente.setCognome_docente(cognome);
+//		docente.setEmail_docente(email);
+//		doc.aggiornaDocente(docente);
+//	}
 
 	// Elimina
 	public static void elimina(int id_docente) {

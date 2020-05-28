@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import it.begear.progetto.dao.DocenteDAO;
 import it.begear.progetto.entity.Docente;
 import it.begear.progetto.service.DocenteService;
 
@@ -49,23 +50,21 @@ public class DocenteServlet extends HttpServlet {
 		}
 
 		else if(azione.equals("aggiorna")) {
-			
-			int id_docente=Integer.parseInt(request.getParameter("id_docente"));
-			
-			String nome_docente = request.getParameter("nome_docente");
+		        int id_docente = Integer.parseInt(request.getParameter("id_docente"));
+		        String nome_docente = request.getParameter("nome_docente");
+		        String cognome_docente = request.getParameter("cognome_docente");
+		        String email_docente = request.getParameter("email_docente");
 
-		String cognome_docente = request.getParameter("cognome_docente");
-
-			String email_docente = request.getParameter("email_docente");
-
-		DocenteService.aggiorna(id_docente, nome_docente, cognome_docente, email_docente);
-
-		response.sendRedirect("docente.jsp");
+		        Docente docente = new Docente(id_docente, nome_docente, cognome_docente, email_docente);
+		        DocenteDAO dao = new DocenteDAO();
+		        dao.aggiornaDocente(docente);
+		        response.sendRedirect("docente.jsp");
+		    }
 
 
 		}
 
-	}
+	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

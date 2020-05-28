@@ -27,17 +27,21 @@
 	<h5>Aggiorna dati del docente</h5>
 			<form action="docente-servlet" method="get" name="modulo"
 				onsubmit="return valida()">
+				<label></label><input type="hidden" name="id_docente"
+					value="<%=docente.getId_docente()%>">
+				<span id="eId"></span>
 				<label>Nome</label><input type="text" name="nome_docente"
-					value="<%=docente.getNome_docente()%>">
+					placeholder="<%=docente.getNome_docente()%>">
 				<span id="eNome"></span>
 				<br>
 				<label>Cognome</label><input type="text" name="cognome_docente"
-					value="<%=docente.getCognome_docente()%>">
+					placeholder="<%=docente.getCognome_docente()%>">
 				<span id="eCognome"></span>
-				<br> <label>E-mail</label><input type="email_docennte"
-					name="email_docente" value="<%=docente.getEmail_docente()%>">
+				<br> <label>E-mail</label><input type="email"
+					name="email_docente" placeholder="<%=docente.getEmail_docente()%>">
 				<span id="eEmail"></span>
 				<br> 
+				<input type="hidden" name="azione" value="aggiorna">
 				<input type="submit" value="Aggiorna"
 					class="btn btn-blu rounded-pill">
 			</form>

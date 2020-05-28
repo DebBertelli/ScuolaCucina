@@ -70,6 +70,18 @@ public class CorsoDAO {
 		return corsi;
 		// lista di corsi con quel titolo
 	} // leggiCorso() per titolo
+	
+	@SuppressWarnings("unchecked")
+	public List<Corso> leggiCorsoD(int id_docente) {
+		List<Corso> corsi = null;
+		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+			corsi = session.createQuery("FROM Corso WHERE id_docente = :id_docente").setParameter("id_docente", id_docente).list();
+		} catch (Exception e) {
+			throw e;
+		}
+		return corsi;
+		// lista di corsi con quel id_docente
+	} // leggiCorsoD() per id_docente
 
 	@SuppressWarnings("unchecked")
 	public static List<Corso> leggiTutti() {

@@ -21,7 +21,7 @@
 	%>
 	<form action="utente-servlet" method="post" name="modulo"
 		onsubmit="return valida()">
-		<div>Nickname</div>
+		<div>Username</div>
 		<input type="text" name="username"><div class="error-js" id="eUsername"></div><br>
 		<div>Password</div>
 		<input type="password" name="psw"><br><div class="error-js" id="ePassword"></div>

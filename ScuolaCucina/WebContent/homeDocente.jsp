@@ -9,6 +9,7 @@
 <title>Scheda docente</title>
 </head>
 <body>
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<%
 		int id_docente = Integer.parseInt(request.getParameter("id_docente"));
 		Docente docente = DocenteService.cerca(id_docente);

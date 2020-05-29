@@ -11,7 +11,8 @@
 <title>Docenti</title>
 </head>
 <body>
-	<a href="index.jsp">Torna alla home</a>
+	<jsp:include page="navbar.jsp"></jsp:include>
+	
 	<h1>Il nostro corpo docenti</h1>
 	<div>
 		<%

@@ -2,12 +2,12 @@ package it.begear.progetto.dao;
 
 
 
-import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
+
+
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.engine.jdbc.spi.SqlExceptionHelper;
+
 import org.hibernate.exception.ConstraintViolationException;
 
 import it.begear.progetto.entity.Utente;
@@ -17,7 +17,7 @@ public class UtenteDAO {
 	
 	
 	// registrazione nuovo utente
-	public static boolean salvaUtente(Utente user) {
+	public boolean salvaUtente(Utente user) {
 		
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -51,8 +51,8 @@ public class UtenteDAO {
 	
 	
 	
-	@SuppressWarnings("unchecked")
-	  public static boolean verificaUtente(String username, String psw) {
+	
+	  public Utente verificaUtente(String username, String psw) {
 
         Transaction transaction = null;
         Utente user = null;
@@ -60,11 +60,12 @@ public class UtenteDAO {
             // inizia la transaction
             transaction = session.beginTransaction();
             // prende un oggetto di tipo utente creando una query sulla base dell'username (unique)
-            user = (Utente) session.createQuery("FROM Utente U WHERE U.username = :username").setParameter("username", username)
+           Utente userok = (Utente) session.createQuery("FROM Utente U WHERE U.username = :username").setParameter("username", username)
                 .uniqueResult();
             // ne verifica la password inserita
-            if (user != null && user.getPsw().equals(psw)) {
-                return true;
+            if (userok != null && userok.getPsw().equals(psw)) {
+            	
+                return userok;
             }
             // commit transaction
             transaction.commit();
@@ -74,7 +75,7 @@ public class UtenteDAO {
             }
             e.printStackTrace();
         }
-        return false;
+        return user;
     }
 
 }

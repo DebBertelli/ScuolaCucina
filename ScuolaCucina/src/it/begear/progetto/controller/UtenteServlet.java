@@ -1,7 +1,9 @@
 package it.begear.progetto.controller;
 
 import it.begear.progetto.dao.*;
+import it.begear.progetto.entity.ListaPreferiti;
 import it.begear.progetto.entity.Utente;
+
 
 import java.io.IOException;
 
@@ -10,6 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
 
 
 
@@ -61,12 +66,12 @@ public class UtenteServlet extends HttpServlet {
 					Utente user = new Utente();
 					user.setNome_utente(nome_utente);
 					user.setCognome_utente(cognome_utente);
-					user.setEmail_utente(nome_utente);
+					user.setEmail_utente(email_utente);
 					user.setUsername(username);
 					user.setPsw(psw);
 					
 					// Invoco il metodo registrazione
-					boolean ok = UtenteDAO.salvaUtente(user);
+					boolean ok = utenteDAO.salvaUtente(user);
 
 					// Se tutto ok, inviare con un messaggio di conferma la risposta a login.jsp
 					if (ok) {
@@ -81,22 +86,54 @@ public class UtenteServlet extends HttpServlet {
 					}
 
 				}else if(azione.equals("login")) { // Login
-					//Leggo i parametri nickname e password
+					//Leggo i parametri username e password
 					String username = request.getParameter("username");
 					String psw = request.getParameter("psw");
 					
 					//Chiamo il metodo login
-					Boolean ok = UtenteDAO.verificaUtente(username, psw);
+					UtenteDAO utenteDAO = new UtenteDAO();
+					Utente loggato = utenteDAO.verificaUtente(username, psw);
+					
 				
 					//Se tutto ok, link a index.jsp
-					if(ok) {
+					if(loggato!= null) {
+						//Ottengo l'oggetto Session
+						HttpSession sessione = request.getSession(false);
+						
+						//Setto come attributo di sessione l'utente e la sua lista dei preferiti vuota
+						if(sessione != null) {
+							sessione.setAttribute("utente", loggato);
+							
+							ListaPreferiti preferiti = new ListaPreferiti();
+							System.out.println(preferiti.getCorsiPreferiti());
+							sessione.setAttribute("preferiti", preferiti);
+							
+						}
 						response.sendRedirect("index.jsp");
+						
+					
+						
+						
+						
 					}else {//Altrimenti, link a login.jsp con un messaggio di errore
 						String messaggio = "Login fallita, ritenta";
 						request.setAttribute("messaggio", messaggio);
 						request.getRequestDispatcher("login.jsp").forward(request, response);
 						
 					}
+					
+					
+
+				}else if(azione.equals("logout")) {	//Logout
+					//Chiudo la sessione
+					HttpSession sessione = request.getSession(false);
+				
+					if(sessione != null) {
+						sessione.invalidate();
+					}
+					
+					//Link alla login.jsp
+					response.sendRedirect("index.jsp");
 					
 				}
 		

@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1 id="docente">Inserisci un nuovo docente</h1>
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<form action="docente-servlet" method="get" name="modulo2"
 		onsubmit="return valida2()">
 		<label>Nome</label> <input type="text" name="nome_docente">

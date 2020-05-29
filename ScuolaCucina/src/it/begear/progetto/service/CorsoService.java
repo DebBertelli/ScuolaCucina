@@ -28,7 +28,7 @@ public class CorsoService {
 	}
 
 	public static List<Corso> listaCorsi() {
-		return c.leggiTutti();
+		return CorsoDAO.leggiTutti();
 	}
 
 	// Aggiorna

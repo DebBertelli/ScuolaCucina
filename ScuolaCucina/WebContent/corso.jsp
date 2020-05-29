@@ -2,6 +2,7 @@
 <%@page import="it.begear.progetto.dao.CorsoDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="it.begear.progetto.entity.Corso"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

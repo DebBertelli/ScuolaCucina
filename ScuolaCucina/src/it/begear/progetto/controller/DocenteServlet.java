@@ -1,15 +1,19 @@
 package it.begear.progetto.controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import it.begear.progetto.dao.DocenteDAO;
 import it.begear.progetto.entity.Docente;
 import it.begear.progetto.service.DocenteService;
+
 
 /**
  * Servlet implementation class DocenteServlet
@@ -60,6 +64,15 @@ public class DocenteServlet extends HttpServlet {
 		        dao.aggiornaDocente(docente);
 		        response.sendRedirect("docente.jsp");
 		    }
+		
+		else if(azione.equals("cerca")) {
+			String cognome_docente = request.getParameter("cognome_docente");
+			List<Docente> docenti = DocenteService.cerca(cognome_docente);
+			
+			//Invio come attributo la lista artisti a artisti-nome.jsp
+			request.setAttribute("docenti", docenti);
+			request.getRequestDispatcher("docenti-nome.jsp").forward(request, response);
+		}
 
 
 		}

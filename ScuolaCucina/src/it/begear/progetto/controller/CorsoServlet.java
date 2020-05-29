@@ -43,11 +43,6 @@ public class CorsoServlet extends HttpServlet {
 		}
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 	private void listaCorsi(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		List<Corso> listacorsi = CorsoService.listaCorsi();
@@ -60,10 +55,15 @@ public class CorsoServlet extends HttpServlet {
 			throws SQLException, IOException {
 		Corso corso = new Corso();
 		String titolo = request.getParameter("titolo");
-		int ore  = Integer.parseInt(request.getParameter("ore"));
-		int id_docente  = Integer.parseInt(request.getParameter("id_docente"));
-		int maxPartecipanti  = Integer.parseInt(request.getParameter("maxPartecipanti"));
+		int ore = Integer.parseInt(request.getParameter("ore"));
+		int id_docente = Integer.parseInt(request.getParameter("id_docente"));
+		int maxPartecipanti = Integer.parseInt(request.getParameter("maxPartecipanti"));
 		CorsoService.inserisci(corso, titolo, ore, id_docente, maxPartecipanti);
 		response.sendRedirect("corso.jsp");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		doGet(request, response);
 	}
 }

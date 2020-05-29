@@ -8,9 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.begear.progetto.dao.CorsoDAO;
+
 import it.begear.progetto.entity.Corso;
 import it.begear.progetto.entity.ListaPreferiti;
+import it.begear.progetto.service.CorsoService;
 
 
 @WebServlet("/preferiti-servlet")
@@ -41,10 +42,9 @@ public class PreferitiServlet extends HttpServlet {
 					int id = Integer.parseInt(request.getParameter("id"));
 					
 					//Aggiungere il corso ai preferiti.
-					
-					CorsoDAO corsoDAO=new CorsoDAO();
+	
 				
-					Corso preferito = corsoDAO.leggiCorso(id);
+					Corso preferito = CorsoService.cerca(id);
 					System.out.println("Trovato corso");
 					
 					preferiti.aggiungiCorso(preferito);
@@ -52,13 +52,13 @@ public class PreferitiServlet extends HttpServlet {
 							
 					//Tornare nell'elenco corsi
 					response.sendRedirect("corso.jsp");
+					
 				}else if(azione.equals("rimuovi")) { //Rimuovi corso
 					//Leggo il parametro id
 					int id = Integer.parseInt(request.getParameter("id"));
 					
 					//Cerco il corso dalla lista
-					CorsoDAO corsoDAO=new CorsoDAO();
-					Corso preferito = corsoDAO.leggiCorso(id);
+					Corso preferito = CorsoService.cerca(id);
 					
 					//Rimuovo il corso dalla lista preferiti
 					preferiti.rimuoviCorso(preferito);

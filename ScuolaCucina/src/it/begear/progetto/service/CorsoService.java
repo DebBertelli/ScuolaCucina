@@ -30,7 +30,7 @@ public class CorsoService {
 	public static List<Corso> listaCorsi() {
 		return CorsoDAO.leggiTutti();
 	}
-
+	
 	// Aggiorna
 	public static void aggiorna(Corso corso) {
 		c.aggiornaCorso(corso);

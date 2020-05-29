@@ -13,12 +13,15 @@
 	<%
 		int id = Integer.parseInt(request.getParameter("id"));
 		Corso corso = CorsoService.cerca(id);
+		
 	%>
 	<div>
 		<h1><%=corso.getTitolo() + " " + corso.getId_docente()%></h1>
 	</div>
 
 	<h5>Corsi:</h5>
+	
+	%>
 	<hr>
 	<!-- modifica -->
 	<h5>Aggiorna dati del corso</h5>

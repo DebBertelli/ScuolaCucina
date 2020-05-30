@@ -101,6 +101,10 @@
 	</div>
 </body>
 
-</body>
+<script type="text/javascript">
+	<%@ include file="/js/validate.js" %>
+	changeNavSelect("CORSI");
+		
+</script>
 
 </html>

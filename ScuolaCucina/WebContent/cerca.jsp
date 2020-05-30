@@ -7,9 +7,9 @@
 <title>Cerca</title>
 </head>
 <body>
-
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<div>
-		<h1>Cerca un docente</h1>
+		<h4>Cerca un docente</h4>
 		<form action="docente-servlet" method="get"
 			onsubmit="return valida('cognome_docente', 'err3')">
 			<label>Cognome</label>
@@ -22,16 +22,14 @@
 		</div> <!-- form di ricerca per i docenti x cognome, reindirizza a lista docenti con quel cognome -->
 		<hr>
 		<div>
-		<h1>Cerca un corso</h1>
-		<form action="CorsoServlet" method="get"
-			onsubmit="return valida('cognome_docente', 'err4')">
-			<label>Titolo</label>
-			<input type="text" name="keyword" id="keyword">
-			<span id="err4"></span><br> 
-			<input type="hidden" name="azione" value="cercaPerKey"> 
-			<input type="submit" value="Cerca" class="btn rounded-pill btn-blu">
-		</form>
-		<br>
-		</div>
+			<h4>Cerca un corso</h4>
+			<form action="CorsoServlet" method="get">
+				<label>Titolo</label>
+				<input type="text" name="titolo" id="titolo"><br> 
+				<input type="hidden" name="azione" value="cercaCorsi"> 
+				<input type="submit" value="Cerca" class="btn rounded-pill btn-blu">
+			</form>
+			<br>
+		</div> <!-- form di ricerca per i corsi x titolo -->
 </body>
 </html>

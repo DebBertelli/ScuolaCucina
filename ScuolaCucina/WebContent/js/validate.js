@@ -7,23 +7,27 @@ function valida() {
 	var risultato = true;
 
 	if (document.modulo2.titolo.value == "") {
-		document.getElementById("err6").innerHTML = "Il campo titolo deve essere riempito";
+		document.getElementById("eTitolo").innerHTML = "Il campo titolo deve essere riempito";
 		risultato = false;
 	}
 
 	if (document.modulo2.ore.value == "") {
-		document.getElementById("err7").innerHTML = "Il campo ore deve essere riempito";
+		document.getElementById("eOre").innerHTML = "Il campo ore deve essere riempito";
 		risultato = false;
 	}
 
-	if (document.modulo2.id_docente.value == "") {
-		document.getElementById("err8").innerHTML = "Il campo id_docente deve essere riempito";
-		risultato = false;
-	}
 	if (document.modulo2.max_partecipanti.value == "") {
-		document.getElementById("err8").innerHTML = "Il campo max_partecipanti deve essere riempito";
+		document.getElementById("eMaxPArtecipanti").innerHTML = "Il campo max_partecipanti deve essere riempito";
 		risultato = false;
 	}
 
 	return risultato;
+}
+
+function changeNavSelect(itemMenu) {
+	var children = [].slice.call(document.getElementsByClassName("topnav")[0].children);
+	children.forEach(function(item){
+		item.classList.remove("active");
+		if(itemMenu == item.innerHTML) item.classList.add("active");
+	});
 }

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="it.begear.progetto.entity.Docente"%>
+<%@page import="it.begear.progetto.dao.DocenteDAO"%>
+<%@page import="it.begear.progetto.service.CorsoService"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +13,32 @@
 <body>
 <body>
 <h1 id="corso">Inserisci un nuovo corso</h1>
-	<form action="corsoServlet" method="get" name="modulo2"
+<jsp:include page="navbar.jsp"></jsp:include>
+	<form action="CorsoServlet" method="post" name="modulo2"
 		onsubmit="return valida2()">
 		<label>Titolo</label> <input type="text" name="titolo">
 		<span id="err6"></span>
-		<br> <label>Ore</label> <input type="text"name="ore">
+		<br> 
+		<label>Ore</label> <input type="text" name="ore">
 		<span id="err7"></span>
-		<br> <label>Id_docente</label> <input type="text" name="id_docente">
+		<br>
+		 <label>Id_docente</label>
+		 <select id="id_docente" name="id_docente">
+						<%
+							List<Docente> docenti = DocenteDAO.leggiTutti();
+							for (Docente d : docenti) {
+						%>
+						<option value="<%=d.getId_docente()%>"><%=String.format("%s %s", d.getNome_docente(), d.getCognome_docente())%></option>
+						<%
+							}
+						%>
+					</select>
 		<span id="err8"></span>
-		<br> <label>maxPartecipanti</label> <input type="text" name="max_partecipanti">
+		<br> 
+		<label>maxPartecipanti</label> <input type="text" name="max_partecipanti">
 		<span id="err8"></span>
-		<br> <input type="hidden" name="azione" value="inserisci">
+		<br>
+		 <input type="hidden" name="azione" value="insert">
 		<input type="submit" value="Inserisci" class="btn rounded-pill btn-blu">
 	</form>
 	<script type="text/javascript">

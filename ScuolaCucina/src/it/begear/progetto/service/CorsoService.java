@@ -3,11 +3,14 @@ package it.begear.progetto.service;
 import java.util.List;
 
 import it.begear.progetto.dao.CorsoDAO;
+import it.begear.progetto.dao.DocenteDAO;
 import it.begear.progetto.entity.Corso;
+import it.begear.progetto.entity.Docente;
 
 public class CorsoService {
 
 	static CorsoDAO c = new CorsoDAO();
+	
 
 	// Inserisci
 	public static void inserisci(Corso corso, String titolo, int ore, int id_docente, int maxPartecipanti) {
@@ -25,6 +28,10 @@ public class CorsoService {
 
 	public static List<Corso> cerca(String titolo) {
 		return c.leggiCorso(titolo);
+	}
+	public static List<Corso>cercaDocente(int id_docente){
+		return c.leggiCorsoD(id_docente);
+		
 	}
 
 	public static List<Corso> listaCorsi() {

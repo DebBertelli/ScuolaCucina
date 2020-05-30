@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.begear.progetto.dao.CorsoDAO;
 import it.begear.progetto.entity.Corso;
-import it.begear.progetto.entity.Docente;
 import it.begear.progetto.service.CorsoService;
-import it.begear.progetto.service.DocenteService;
 
 @WebServlet("/CorsoServlet")
 public class CorsoServlet extends HttpServlet {
@@ -36,10 +34,13 @@ public class CorsoServlet extends HttpServlet {
 				corsiPerKeyword(request,response);
 				break;
 			case "delete":
+				eliminaCorso(request, response);
 				break;
-			case "edit":
+			case "cerca":
+				cercaCorso(request, response);
 				break;
 			case "update":
+				aggiornaCorso(request, response);
 				break;
 			default:
 				listaCorsi(request, response);
@@ -63,11 +64,13 @@ public class CorsoServlet extends HttpServlet {
 			throws SQLException, IOException {
 		Corso corso = new Corso();
 		String titolo = request.getParameter("titolo");
-		int ore = Integer.parseInt(request.getParameter("ore"));
-		int id_docente = Integer.parseInt(request.getParameter("id_docente"));
-		int maxPartecipanti = Integer.parseInt(request.getParameter("maxPartecipanti"));
-		CorsoService.inserisci(corso, titolo, ore, id_docente, maxPartecipanti);
+		int ore = Integer.parseInt(request.getParameter("ore").trim());
+		int id_docente = Integer.parseInt(request.getParameter("id_docente").trim());
+		int maxPartecipanti = Integer.parseInt(request.getParameter("max_partecipanti").trim());
+		CorsoService.inserisci(corso,titolo, ore, id_docente, maxPartecipanti);
 		response.sendRedirect("corso.jsp");
+	
+	
 	}
 	
 	private void corsiPerKeyword(HttpServletRequest request, HttpServletResponse response)
@@ -82,6 +85,33 @@ public class CorsoServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	private void eliminaCorso(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		CorsoService.elimina(id);
+		request.setAttribute("id", id);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("corso.jsp");
+		dispatcher.forward(request, response);
+	}
+	
+	private void aggiornaCorso(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		    int id = Integer.parseInt(request.getParameter("id"));
+	        String titolo = request.getParameter("titolo");
+            int ore =Integer.parseInt(request.getParameter("ore").trim());
+	        int id_docente = Integer.parseInt(request.getParameter("id_docente").trim());
+	        int maxPartecipanti = Integer.parseInt(request.getParameter("max_partecipanti").trim());
+	        Corso corso = new Corso(id, titolo, ore, id_docente, maxPartecipanti);
+	        CorsoService.aggiorna(corso);
+	        response.sendRedirect("corso.jsp"); 
+	}
+	
+	private void cercaCorso(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+		int  id_docente = Integer.parseInt(request.getParameter("id_docente"));
+		List<Corso> listacorsi = CorsoService.cercaDocente(id_docente);
+		request.setAttribute("listacorsi",listacorsi);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("corso.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

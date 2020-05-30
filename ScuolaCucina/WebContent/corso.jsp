@@ -3,6 +3,7 @@
 <%@page import="it.begear.progetto.dao.CorsoDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="it.begear.progetto.entity.Corso"%>
+<%@page import="it.begear.progetto.entity.Docente"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -53,24 +54,27 @@
 			<div class="divCell">Ore</div>
 			<div class="divCell">Docente</div>
 			<div class="divCell">Max Partecipanti</div>
-			<div class="divCell">Elimina</div>
+			<div class="divCell">                </div>
 		</div>
 		<%
 			for (Corso c : corsi) {
-				DocenteDAO docente = new DocenteDAO();
+				DocenteDAO docenteDoa = new DocenteDAO();
+				Docente docente = docenteDoa.leggiDocente(c.getId_docente());
 		%>
 		<div class="divRow">
 			<div class="divCell">
 				<a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
 			</div>
 			<div class="divCell"><%=c.getOre()%></div>
-			<div class="divCell"><%=docente.leggiDocente(c.getId_docente()).getCognome_docente()%></div>
-			<div class="divCell"><%=c.getMaxPartecipanti()%></div>
 			<div class="divCell">
+				<a href="homeDocente.jsp?id=<%=docente.getId_docente()%>"><%=String.format("%s %s", docente.getNome_docente(), docente.getCognome_docente())%></a>
+			</div>
+			<div class="divCell"><%=c.getMaxPartecipanti()%></div>
+			<div class="divCell" align="center">
 				<form action="CorsoServlet" method="get">
-					<input type="hidden" name="id" value="<%=c.getId()%>"> <br>
-					<input type="hidden" name="azione" value="delete"> <input
-						type="submit" value="Elimina" class="btn rounded-pill btn-blu">
+					<input type="hidden" name="id" value="<%=c.getId()%>">
+					<input type="hidden" name="azione" value="delete"> 
+					<input type="submit" value="Elimina" class="btn rounded-pill btn-blu">
 				</form>
 			</div>
 		</div>

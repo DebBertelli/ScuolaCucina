@@ -34,26 +34,32 @@ input.trasparente{
 		Corso c = new Corso();
 	%>
 	<div>
-		<h1><%=String.format("%s %s", corso.getId_docente(),corso.getTitolo())%></h1>
+		<h1><%=corso.getTitolo()%></h1>
 		<%
-		String messaggio = (String) request.getAttribute("messaggio");
-		if (messaggio != null) {
-	%>
-	<p><%=messaggio%></p>
-	<%
-		}
-	%>
-		<form action="preferiti-servlet" style="display:inline-block">
-									<input type="hidden" name="id" value="<%=corso.getId()%>">
-									<input type="hidden" name="azione" value="aggiungi">
-									<input type="submit" value="&hearts; Salva" class="trasparente"
-										>
-								</form>
+			String messaggio = (String) request.getAttribute("messaggio");
+			if (messaggio != null) {
+		%>
+		<p><%=messaggio%></p>
+		<%
+			}
+		%>
+
+		<h4>
+			Durata:
+			<%=corso.getOre() + "ore"%></h4>
+		<h4>
+			Posti disponibili:
+			<%=corso.getMaxPartecipanti()%></h4>
+
+		<form action="preferiti-servlet" style="display: inline-block">
+			<input type="hidden" name="id" value="<%=corso.getId()%>"> <input
+				type="hidden" name="azione" value="aggiungi"> <input
+				type="submit" value="&hearts; Salva" class="trasparente">
+		</form>
 	</div>
-	<%
-		DocenteDAO docenteDao = new DocenteDAO();
-		Docente docente = docenteDao.leggiDocente(corso.getId_docente());
-	%>
+	
+	<br>
+	
 	<!-- modifica -->
 	<div class="container">
 		<h4>Aggiorna dati del corso</h4>
@@ -67,8 +73,9 @@ input.trasparente{
 			</div>
 			<div class="row">
 				<div class="col-75">
-					<input type="text" id="titolo" name="titolo" placeholder="Inserici titolo"
-						value="<%=corso.getTitolo()%>" /> <span id="eTitolo"></span>
+					<input type="text" id="titolo" name="titolo"
+						placeholder="Inserici titolo" value="<%=corso.getTitolo()%>" /> <span
+						id="eTitolo"></span>
 				</div>
 			</div>
 			<div class="row">
@@ -95,7 +102,9 @@ input.trasparente{
 							List<Docente> docenti = DocenteDAO.leggiTutti();
 							for (Docente d : docenti) {
 						%>
-						<option value="<%=d.getId_docente()%>" <%if((d.getId_docente())==corso.getId_docente()){%> selected <%}%>><%=String.format("%s %s", d.getNome_docente(), d.getCognome_docente())%></option>
+						<option value="<%=d.getId_docente()%>"
+							<%if ((d.getId_docente()) == corso.getId_docente()) {%> selected
+							<%}%>><%=String.format("%s %s", d.getNome_docente(), d.getCognome_docente())%></option>
 						<%
 							}
 						%>
@@ -126,9 +135,9 @@ input.trasparente{
 </body>
 
 <script type="text/javascript">
-	<%@ include file="/js/validate.js" %>
+	
+<%@ include file="/js/validate.js" %>
 	changeNavSelect("CORSI");
-		
 </script>
 
 </html>

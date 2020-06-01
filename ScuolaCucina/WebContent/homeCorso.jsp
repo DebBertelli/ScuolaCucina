@@ -12,6 +12,16 @@
 <title>Scheda Docente</title>
 <style type="text/css">
 <%@ include file="/css/form.css" %>
+
+input.trasparente{
+	background-color: #C82C02;
+	border: none;
+	outline: none;
+	color: white;
+	padding:5px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
 </style>
 </head>
 
@@ -25,6 +35,20 @@
 	%>
 	<div>
 		<h1><%=String.format("%s %s", corso.getId_docente(),corso.getTitolo())%></h1>
+		<%
+		String messaggio = (String) request.getAttribute("messaggio");
+		if (messaggio != null) {
+	%>
+	<p><%=messaggio%></p>
+	<%
+		}
+	%>
+		<form action="preferiti-servlet" style="display:inline-block">
+									<input type="hidden" name="id" value="<%=corso.getId()%>">
+									<input type="hidden" name="azione" value="aggiungi">
+									<input type="submit" value="&hearts; Salva" class="trasparente"
+										>
+								</form>
 	</div>
 	<%
 		DocenteDAO docenteDao = new DocenteDAO();

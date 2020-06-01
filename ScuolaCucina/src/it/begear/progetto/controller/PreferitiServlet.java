@@ -38,7 +38,10 @@ public class PreferitiServlet extends HttpServlet {
 				
 				//Aggiungi album
 				if(azione.equals("aggiungi")) {
+					try {
+					
 					//Leggo il parametro id
+					
 					int id = Integer.parseInt(request.getParameter("id"));
 					
 					//Aggiungere il corso ai preferiti.
@@ -52,7 +55,12 @@ public class PreferitiServlet extends HttpServlet {
 							
 					//Tornare nell'elenco corsi
 					response.sendRedirect("corso.jsp");
-					
+					}catch(Exception e) {
+						String messaggio = "Login non effettuato, impossibile salvare i corsi ";
+						request.setAttribute("messaggio", messaggio);
+						request.getRequestDispatcher("homeCorso.jsp").forward(request, response);
+						
+					}	
 				}else if(azione.equals("rimuovi")) { //Rimuovi corso
 					//Leggo il parametro id
 					int id = Integer.parseInt(request.getParameter("id"));

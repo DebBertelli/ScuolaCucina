@@ -6,12 +6,17 @@ input[type=text], select, textarea {
 	border-radius: 4px;
 	box-sizing: border-box;
 	resize: vertical;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Style the label to display next to the inputs */
 label {
 	padding: 12px 12px 12px 0;
 	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+}
+placeholder{
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Style the submit button */
@@ -23,6 +28,8 @@ input[type=submit] {
 	border-radius: 4px;
 	cursor: pointer;
 	float: right;
+	text-align:center;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Style the container */

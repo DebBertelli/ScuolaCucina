@@ -14,7 +14,7 @@
 /* Style the header with a white background and some padding */
 .header {
 	overflow: hidden;
-	background-color: #ffff;
+	background-color:#FAFBFC;
 	padding-bottom:10px;
 	
 }
@@ -93,7 +93,7 @@ ul.breadcrumb li a:hover {
 .topnav {
 	background-color: #C82C02;
 	overflow: hidden;
-	margin-bottom:20px;
+	
 }
 
 /* Style the links inside the navigation bar */
@@ -101,7 +101,7 @@ ul.breadcrumb li a:hover {
 	float: left;
 	color: #f2f2f2;
 	text-align: center;
-	padding: 18px 16px;
+	padding: 24px 22px;
 	text-decoration: none;
 	font-size: 17px;
 	 font-family: Arial, Helvetica, sans-serif;
@@ -126,7 +126,7 @@ ul.breadcrumb li a:hover {
 }
 </style>
 </head>
-<body style="margin: 0">
+<body style="margin:0;background-color:#FAFBFC;">
 
 	<div class="header">
 		<a href="index.jsp" class="logo"><img src="image/logo1.png" alt="Cook-Vid19" style="width:90%;max-width:150px"></a>

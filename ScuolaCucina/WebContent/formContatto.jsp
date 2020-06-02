@@ -27,7 +27,7 @@ textarea {
 <body>
 	<h1>Contattaci!</h1>
 	<div class="container">
-	<form onsubmit="invio()">
+	<form onsubmit="invio()" method="post">
 		
 			<div>
 				<label>Email</label> 

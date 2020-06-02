@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="it.begear.progetto.entity.Docente"%>
+<%@page import="it.begear.progetto.entity.Corso"%>
+<%@page import="it.begear.progetto.dao.CorsoDAO"%>
+<%@page import="java.util.List"%>
 <%@page import="it.begear.progetto.service.DocenteService"%>
 <!DOCTYPE html>
 <html>
@@ -23,6 +26,14 @@
 	<%=docente.getEmail_docente()%>
 
 	<h5>Corsi:</h5>
+		 <% CorsoDAO corso = new CorsoDAO();
+	 List<Corso> corsi = corso.leggiCorsoD(id_docente);
+	 
+	 for(Corso c: corsi){ %>
+		 <a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
+		 <br>
+	<% }
+	 %>
 	<hr>
 	<!-- modifica -->
 	<h5>Aggiorna dati del docente</h5>

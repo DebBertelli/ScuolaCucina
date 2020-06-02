@@ -23,12 +23,17 @@
 		<hr>
 		<div>
 			<h4>Cerca un corso</h4>
-			<form action="CorsoServlet" method="get">
-				<label>Titolo</label>
-				<input type="text" name="titolo" id="titolo"><br> 
-				<input type="hidden" name="azione" value="cercaCorsi"> 
-				<input type="submit" value="Cerca" class="btn rounded-pill btn-blu">
-			</form>
+				<div>
+		<form action="CorsoServlet" method="get"
+			onsubmit="return valida('cognome_docente', 'err4')">
+			<label>Titolo</label>
+			<input type="text" name="keyword" id="keyword">
+			<span id="err4"></span><br> 
+			<input type="hidden" name="azione" value="cercaPerKey"> 
+			<input type="submit" value="Cerca" class="btn rounded-pill btn-blu">
+		</form>
+		<br>
+ 		</div>
 			<br>
 		</div> <!-- form di ricerca per i corsi x titolo -->
 </body>

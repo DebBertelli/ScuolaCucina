@@ -36,5 +36,6 @@
  		</div>
 			<br>
 		</div> <!-- form di ricerca per i corsi x titolo -->
+		<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

@@ -37,5 +37,6 @@
 		}
 	%>
 	<a href="inserisciDocente.jsp?">&rarr; Inserisci un nuovo docente</a>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

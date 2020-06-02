@@ -21,6 +21,7 @@
 		<span id="err8"></span>
 		<br> <input type="hidden" name="azione" value="inserisci">
 		<input type="submit" value="Inserisci" class="btn rounded-pill btn-blu">
+		<jsp:include page="footer.jsp"></jsp:include>
 	</form>
 	<script type="text/javascript">
 		function valida2() {

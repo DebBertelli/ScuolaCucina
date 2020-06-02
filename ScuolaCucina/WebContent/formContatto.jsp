@@ -27,38 +27,37 @@ textarea {
 <body>
 	<h1>Contattaci!</h1>
 	<div class="container">
-	<form>
+	<form onsubmit="invio()">
 		
 			<div>
 				<label>Email</label> 
 				<br> 
-				<input type="email" placeholder="example@example.com" required></input>
+				<input type="email" placeholder="example@example.com" name="mail" required></input>
 			</div>
 			<br>
 			<div>
 				<label>Numero di telefono</label>
 				<br>
-				<input type="number" placeholder="0123456789" required></input>
+				<input type="number" placeholder="0123456789" name="tel" required></input>
 			</div>
 			<br>
 			<div>
 				<label>Oggetto</label><br> 
-				<input type="text" placeholder="Oggetto" required></input>
+				<input type="text" placeholder="Oggetto" name="obj" required></input>
 			</div>
 			<br>
 			<div>
 				<textarea name="text" placeholder="Scrivi un messaggio..." required></textarea>
 			</div>
 			
-			<input type="hidden" name="azione" value="invio">
-			<input type="submit" value="Invia" class="bottone bottone-small" onclick="invio()">
+			<input type="submit" value="Invia" class="bottone bottone-small">
 		</form>
 		</div>
 		
 		<script>
 		function invio(){
-			alert('Grazie del messaggio. Ti ricontatteremo il prima possibile!');
-			}
+			alert('Grazie del messaggio. Ti ricontatteremo il prima possibile!')
+		}
 		</script>
 	
 	

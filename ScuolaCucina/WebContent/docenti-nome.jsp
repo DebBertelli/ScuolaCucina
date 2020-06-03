@@ -6,9 +6,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Risultati ricerca</title>
 </head>
 <body>
+<jsp:include page="navbar.jsp"></jsp:include>
 <%
 
 			List<Docente> docenti = (List<Docente>)request.getAttribute("docenti");

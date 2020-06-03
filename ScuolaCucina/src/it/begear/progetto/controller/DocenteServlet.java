@@ -68,7 +68,6 @@ public class DocenteServlet extends HttpServlet {
 						String nome_docente = request.getParameter("nome_docente");
 						String cognome_docente = request.getParameter("cognome_docente");
 						String email_docente = request.getParameter("email_docente");
-
 						Docente docente = new Docente(id_docente, nome_docente, cognome_docente, email_docente);
 						DocenteDAO dao = new DocenteDAO();
 						dao.aggiornaDocente(docente);
@@ -78,13 +77,13 @@ public class DocenteServlet extends HttpServlet {
 				else {
 					String messaggio = "Effettua la login prima di compiere un'operazione";
 					request.setAttribute("messaggio", messaggio);
-					request.getRequestDispatcher("error.jsp").forward(request, response);
+					request.getRequestDispatcher("docente.jsp").forward(request, response);
 				} // utenteCorrente==null
 
 			} else {
 				String messaggio = "Effettua la login prima di compiere un'operazione";
 				request.setAttribute("messaggio", messaggio);
-				request.getRequestDispatcher("error.jsp").forward(request, response);
+				request.getRequestDispatcher("docente.jsp").forward(request, response);
 			} // sessione==null
 		} // azione!=cerca
 	}// doGet()

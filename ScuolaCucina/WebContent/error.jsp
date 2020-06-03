@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>ERROR</title>
 </head>
+<jsp:include page="navbar.jsp"></jsp:include>
 <body style="background-size: 100%">
-	<h1 class="titolo">Cuciniamolo</h1>
 	<br>
 	<h1 class="errore">ERRORE</h1>
 	<br>
@@ -20,5 +20,6 @@
 		}
 	%>
 	<a href="index.jsp" class="bottone">Torna alla home</a>
+<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

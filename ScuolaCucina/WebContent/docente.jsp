@@ -13,6 +13,14 @@
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
+		<%
+		String messaggio = (String) request.getAttribute("messaggio");
+		if (messaggio != null) {
+	%>
+	<h3 class="messaggio"><%=messaggio%></h3>
+	<%
+		}
+	%>
 	<h1>Il nostro corpo docenti</h1>
 	<div>
 		<%

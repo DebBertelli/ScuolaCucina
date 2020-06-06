@@ -13,15 +13,15 @@
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
-	<h1>Il nostro corpo docenti</h1>
 		<%
 		String messaggio = (String) request.getAttribute("messaggio");
 		if (messaggio != null) {
 	%>
-	<p class="messaggio"><%=messaggio%></p>
+	<h3 class="messaggio"><%=messaggio%></h3>
 	<%
 		}
 	%>
+	<h1>Il nostro corpo docenti</h1>
 	<div>
 		<%
 			List<Docente> docenti = DocenteDAO.leggiTutti();

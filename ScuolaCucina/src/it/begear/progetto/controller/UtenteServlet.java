@@ -103,6 +103,7 @@ public class UtenteServlet extends HttpServlet {
 						//Setto come attributo di sessione l'utente e la sua lista dei preferiti vuota
 						if(sessione != null) {
 							sessione.setAttribute("utente", loggato);
+							sessione.setAttribute(Utente.IS_ADMIN, "admin".equalsIgnoreCase(username));
 							
 							ListaPreferiti preferiti = new ListaPreferiti();
 							System.out.println(preferiti.getCorsiPreferiti());

@@ -30,7 +30,7 @@ public class CorsoServlet extends HttpServlet {
 			case "insert":
 				inserisciCorso(request, response);
 				break;
-			case"cercaPerKey":
+			case"cercaCorsi":
 				corsiPerKeyword(request,response);
 				break;
 			case "delete":
@@ -76,8 +76,8 @@ public class CorsoServlet extends HttpServlet {
 	private void corsiPerKeyword(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 		CorsoDAO corsodao = new CorsoDAO();
-		String keyword = request.getParameter("keyword");
-		List<Corso> corsi = corsodao.cercaPerKeyword(keyword);
+		String titolo = request.getParameter("titolo");
+		List<Corso> corsi = corsodao.cercaPerKeyword(titolo);
 		request.setAttribute("corsi", corsi);
 		try {
 			request.getRequestDispatcher("corsi-titolosimile.jsp").forward(request, response);

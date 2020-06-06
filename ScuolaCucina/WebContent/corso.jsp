@@ -1,3 +1,4 @@
+<%@page import="it.begear.progetto.controller.UtenteServlet"%>
 <%@page import="it.begear.progetto.service.DocenteService"%>
 <%@page import="it.begear.progetto.dao.DocenteDAO"%>
 <%@page import="it.begear.progetto.service.CorsoService"%>
@@ -5,6 +6,7 @@
 <%@page import="java.util.List"%>
 <%@page import="it.begear.progetto.entity.Corso"%>
 <%@page import="it.begear.progetto.entity.Docente"%>
+<%@page import="it.begear.progetto.entity.Utente"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -56,6 +58,8 @@
 		</div>
 		<%
 			}
+		Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
+		if(isAdmin!=null && isAdmin){
 		%>
 		<div class="divRow">
 			<div class="divCell"></div>
@@ -69,6 +73,9 @@
 				</div>
 			</div>
 		</div>
+		<%
+			}
+		%>
 	</div>
 </body>
 <script type="text/javascript">

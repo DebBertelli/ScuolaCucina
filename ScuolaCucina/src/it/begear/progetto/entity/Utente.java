@@ -18,6 +18,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Data
 public class Utente {
+  public static final String IS_ADMIN = "is_admin";
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

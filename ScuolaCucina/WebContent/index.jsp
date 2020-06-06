@@ -11,6 +11,10 @@
 <body>
 
 <jsp:include page="navbar.jsp"></jsp:include>
+<% 
+	Utente utente = (Utente) session.getAttribute("utente"); //Session è un oggetto implicito della classe HttpSession
+	if(utente==null) session.setAttribute(Utente.IS_ADMIN, false); 
+%>
 
  <!-- Slideshow container -->
 <div class="slideshow-container">

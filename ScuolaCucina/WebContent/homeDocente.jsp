@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="it.begear.progetto.entity.Docente"%>
+<%@page import="it.begear.progetto.entity.Utente"%>
 <%@page import="it.begear.progetto.entity.Corso"%>
 <%@page import="it.begear.progetto.dao.CorsoDAO"%>
 <%@page import="java.util.List"%>
@@ -26,37 +27,40 @@
 	<%=docente.getEmail_docente()%>
 
 	<h5>Corsi:</h5>
-		 <% CorsoDAO corso = new CorsoDAO();
-	 List<Corso> corsi = corso.leggiCorsoD(id_docente);
-	 
-	 for(Corso c: corsi){ %>
-		 <a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
-		 <br>
-	<% }
-	 %>
+	<%
+		CorsoDAO corso = new CorsoDAO();
+		List<Corso> corsi = corso.leggiCorsoD(id_docente);
+
+		for (Corso c : corsi) {
+	%>
+	<a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
+	<br>
+	<%
+		}
+	%>
 	<hr>
+	<%
+		Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
+		if (isAdmin != null && isAdmin) {
+	%>
 	<!-- modifica -->
 	<h5>Aggiorna dati del docente</h5>
-			<form action="docente-servlet" method="get" name="modulo"
-				onsubmit="return valida()">
-				<label></label><input type="hidden" name="id_docente"
-					value="<%=docente.getId_docente()%>">
-				<span id="eId"></span>
-				<label>Nome</label><input type="text" name="nome_docente"
-					placeholder="<%=docente.getNome_docente()%>">
-				<span id="eNome"></span>
-				<br>
-				<label>Cognome</label><input type="text" name="cognome_docente"
-					placeholder="<%=docente.getCognome_docente()%>">
-				<span id="eCognome"></span>
-				<br> <label>E-mail</label><input type="email"
-					name="email_docente" placeholder="<%=docente.getEmail_docente()%>">
-				<span id="eEmail"></span>
-				<br> 
-				<input type="hidden" name="azione" value="aggiorna">
-				<input type="submit" value="Aggiorna"
-					class="btn btn-blu rounded-pill">
-			</form>
+	<form action="docente-servlet" method="get" name="modulo"
+		onsubmit="return valida()">
+		<label></label><input type="hidden" name="id_docente"
+			value="<%=docente.getId_docente()%>"> <span id="eId"></span>
+		<label>Nome</label><input type="text" name="nome_docente"
+			placeholder="<%=docente.getNome_docente()%>"> <span
+			id="eNome"></span> <br> <label>Cognome</label><input type="text"
+			name="cognome_docente"
+			placeholder="<%=docente.getCognome_docente()%>"> <span
+			id="eCognome"></span> <br> <label>E-mail</label><input
+			type="email" name="email_docente"
+			placeholder="<%=docente.getEmail_docente()%>"> <span
+			id="eEmail"></span> <br> <input type="hidden" name="azione"
+			value="aggiorna"> <input type="submit" value="Aggiorna"
+			class="btn btn-blu rounded-pill">
+	</form>
 	<!-- elimina -->
 	<h5 style="display: inline-block;">Elimina</h5>
 	<form style="display: inline-block; padding: 0"
@@ -66,5 +70,8 @@
 		<input type="hidden" name="azione" value="elimina"> <input
 			type="submit" value="&times;" class="btn btn-warning rounded-pill">
 	</form>
+	<%
+		}
+	%>
 </body>
 </html>

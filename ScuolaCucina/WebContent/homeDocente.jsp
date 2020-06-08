@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="it.begear.progetto.entity.Docente"%>
+<%@page import="it.begear.progetto.entity.Utente"%>
 <%@page import="it.begear.progetto.entity.Corso"%>
 <%@page import="it.begear.progetto.dao.CorsoDAO"%>
 <%@page import="java.util.List"%>
@@ -26,6 +27,7 @@
 	
 	    <h3>Email:<%=docente.getEmail_docente()%></h3>
 
+
 	    <h3>Corsi:
 		 <% CorsoDAO corso = new CorsoDAO();
 	        List<Corso> corsi = corso.leggiCorsoD(id_docente);
@@ -37,9 +39,14 @@
 		}
 	    %></h3>
 	</div>
-	
-	
+
+	<%
+		Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
+		if (isAdmin != null && isAdmin) {
+	%>
+
 	<!-- modifica -->
+
 	<div class="container">
 	  <h2>Aggiorna dati del docente</h2>
 			<form action="docente-servlet" method="get" name="modulo"
@@ -90,6 +97,7 @@
 		</form>
 	</div>
 	
+
 	<!-- elimina -->
 	<h5 style="display: inline-block;">Elimina</h5>
 	<form style="display: inline-block; padding: 0"
@@ -99,5 +107,8 @@
 		<input type="hidden" name="azione" value="elimina"> <input
 			type="submit" value="&times;" class="btn btn-warning rounded-pill">
 	</form>
+	<%
+		}
+	%>
 </body>
 </html>

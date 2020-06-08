@@ -5,9 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Registrazione</title>
+<link rel="stylesheet" href="css/login.css">
+
+
 </head>
 <body style="background-size: 100%">
-	<h2>Cuciniamolo</h2>
+ <div class="container">
+	
 	<br>
 	<h2>Registrazione</h2>
 	<%
@@ -36,6 +40,8 @@
 	</form>
 	<a style="margin-bottom: 50px" href="login.jsp">Oppure effettua la
 		login</a>
+		
+	</div>
 	<script>
 		function valida() {
 

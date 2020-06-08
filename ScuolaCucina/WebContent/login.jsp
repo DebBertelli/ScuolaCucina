@@ -4,6 +4,7 @@
 <html>
 <head>
    <meta charset="UTF-8">
+   <title>Login</title>
    <style type="text/css">
      <%@ include file="/css/login.css" %>
    </style>
@@ -11,7 +12,7 @@
 
 <body style="background-size: 100%">
  <div class="container">
-	<h2>Cuciniamolo</h2>
+	
 	<br>
 	<h2>Login</h2>
 	<%

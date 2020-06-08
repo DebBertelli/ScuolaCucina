@@ -4,53 +4,56 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/style.css">
+
 <title>Contattaci</title>
-<style>
-input, textarea, label {
-	width: 1000px;
-	padding: 12px;
-	border: 1px solid #ccc;
-	box-sizing: border-box;
-}
 
-textarea {
-	height: 200px;
-}
-
-.container {
-	border-radius: 5px;
-	background-color: #f2f2f2;
-	padding: 20px;
-}
-</style>
 </head>
 <body>
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<h1>Contattaci!</h1>
 	<div class="container">
 	<form onsubmit="invio()" method="post">
 		
-			<div>
+			<div class="row">
+				<div class="col-25">
 				<label>Email</label> 
-				<br> 
+			</div>
+		</div>
+			<div class="row">
+				<div class="col-25">
 				<input type="email" placeholder="example@example.com" name="mail" required></input>
 			</div>
-			<br>
-			<div>
+		</div>
+			
+		<div class="row">
+				<div class="col-25">
 				<label>Numero di telefono</label>
-				<br>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-75">
 				<input type="number" placeholder="0123456789" name="tel" required></input>
 			</div>
-			<br>
-			<div>
+		</div>
+		<div class="row">
+			<div class="col-75">
 				<label>Oggetto</label><br> 
 				<input type="text" placeholder="Oggetto" name="obj" required></input>
 			</div>
-			<br>
-			<div>
+		</div>
+		<div class="row">
+			<div class="col-75">
 				<textarea name="text" placeholder="Scrivi un messaggio..." required></textarea>
 			</div>
-			
+		</div>
+		<div class="row">
+			<div class="col-75">
 			<input type="submit" value="Invia" class="bottone bottone-small">
+		</div>
+		</div>
 		</form>
 		</div>
 		

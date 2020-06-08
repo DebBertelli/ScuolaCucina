@@ -17,6 +17,7 @@
 	background-color:#FAFBFC;
 	padding-bottom:10px;
 	
+	
 }
 
 /* Style the header links */
@@ -126,7 +127,7 @@ ul.breadcrumb li a:hover {
 }
 </style>
 </head>
-<body style="margin:0;background-color:#FAFBFC;">
+<body style="background-color:#FAFBFC;">
 
 	<div class="header">
 		<a href="index.jsp" class="logo"><img src="image/logo1.png" alt="Cook-Vid19" style="width:90%;max-width:150px"></a>

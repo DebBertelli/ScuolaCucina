@@ -6,12 +6,15 @@
 <meta charset="UTF-8">
 <title>Registrazione</title>
 <link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/style.css">
 
 
 </head>
 <body style="background-size: 100%">
  <div class="container">
 	
+	<br>
+	<a href="index.jsp" class="logo"><img src="image/logo1.png" alt="Cook-Vid19" style="width:90%;max-width:150px"></a>
 	<br>
 	<h2>Registrazione</h2>
 	<%

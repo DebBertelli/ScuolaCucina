@@ -5,11 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Cerca</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/form.css">
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<div>
-		<h4>Cerca un docente</h4>
+		<h2>Cerca un docente</h2>
 		<form action="docente-servlet" method="get"
 			onsubmit="return valida('cognome_docente', 'err3')">
 			<label>Cognome</label>
@@ -19,10 +21,13 @@
 			<input type="submit" value="Cerca" class="btn rounded-pill btn-blu">
 		</form>
 		<br>
+		<br>
+		<br>
+		<br>
 		</div> <!-- form di ricerca per i docenti x cognome, reindirizza a lista docenti con quel cognome -->
 		<hr>
 		<div>
-			<h4>Cerca un corso</h4>
+			<h2>Cerca un corso</h2>
 				<div>
 		<form action="CorsoServlet" method="get"
 			onsubmit="return valida('cognome_docente', 'err4')">

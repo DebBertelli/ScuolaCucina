@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Scheda Docente</title>
+<title>Scheda Corso</title>
 <style type="text/css">
 <%@ include file="/css/form.css" %>
 <%@ include file="/css/style.css" %>
@@ -62,7 +62,11 @@
 					<input type="submit" value="Elimina" class="btn rounded-pill btn-blu" style="float:left">
 				</form>
 				</div>
-				<br><br>
+				<br>
+				<br>
+				<br>
+				<br>
+				
 		<h2>Aggiorna dati del corso</h2>
 		<form action="CorsoServlet" method="get" name="modulo"
 			onsubmit="return valida()">
@@ -136,6 +140,7 @@
 			}
 		%>
 	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 
 <script type="text/javascript">

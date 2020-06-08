@@ -7,12 +7,13 @@
 <link rel="stylesheet" href="css/form.css">
 <link rel="stylesheet" href="css/style.css">
 
-<title>Contattaci</title>
+<title>Contatti</title>
 
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-	<h1>Contattaci!</h1>
+	<h1>Contattaci</h1>
+	<h4>Richiedi maggiori informazioni inviandoci un messaggio!</h4>
 	<div class="container">
 	<form onsubmit="invio()" method="post">
 		

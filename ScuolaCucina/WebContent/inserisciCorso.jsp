@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="css/style.css">
 <meta charset="ISO-8859-1">
 <title>Inserisci corso</title>
 <style type="text/css">

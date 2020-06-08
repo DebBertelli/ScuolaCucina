@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Homepage</title>	
 <link rel="stylesheet" href="css/index.css">	
+<link rel="stylesheet" href="css/style.css">
 <body>
 
 <jsp:include page="navbar.jsp"></jsp:include>
@@ -52,7 +53,7 @@
    <div style="display:inline; width: 50%">
 
 			
-			<h1 style="margin-left:25%; margin-right:5%;">La scuola di cucina inarrestabile</h1>
+			<h1 style="margin-left:25%; margin-right:5%;">La scuola di cucina inarrestabile!</h1>
 			<hr style="margin-left:25%;">
 			<p style="margin-left: 25%;  margin-right:5%;"><i>Siete negati ai fornelli e vorreste iniziare a saper
 			 fare qualcosa?

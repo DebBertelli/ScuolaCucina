@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/style.css">
 <title>Inserisci docente</title>
 <style type="text/css">
 <%@ include file="/css/form.css" %>

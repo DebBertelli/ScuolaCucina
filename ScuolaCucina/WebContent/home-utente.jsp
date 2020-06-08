@@ -13,17 +13,7 @@
 
  
  
-<style>input[type=submit] {
-	background-color: #4CAF50;
-	color: white;
-	padding: 12px 20px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	text-align:center;
-	margin-top: 6px;
-	font-family: Arial, Helvetica, sans-serif;
-}</style>
+
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
@@ -105,5 +95,7 @@
 					out.println("la lista è vuota.");
 			%>
 		</div>
+		
+		<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

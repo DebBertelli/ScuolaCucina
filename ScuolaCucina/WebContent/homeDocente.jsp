@@ -25,10 +25,10 @@
 	<div class="container">
 		<h1><%=docente.getNome_docente() + " " + docente.getCognome_docente()%></h1>
 	
-	    <h3>Email:<%=docente.getEmail_docente()%></h3>
+	    <h5>Email:<%=docente.getEmail_docente()%></h5>
 
 
-	    <h3>Corsi:
+	    <h5>Corsi:
 		 <% CorsoDAO corso = new CorsoDAO();
 	        List<Corso> corsi = corso.leggiCorsoD(id_docente);
 	 
@@ -37,7 +37,7 @@
 		    <br>
 		<%
 		}
-	    %></h3>
+	    %></h5>
 	</div>
 
 	<%
@@ -57,7 +57,10 @@
 			type="submit" value="Elimina" class="btn btn-warning rounded-pill" style="float:left">
 		</form>
 		</div>
-		<br><br>
+		<br>
+		<br>
+		<br>
+		<br>
 		<!-- modifica -->
 	  <h2>Aggiorna dati del docente</h2>
 			<form action="docente-servlet" method="get" name="modulo"
@@ -120,5 +123,6 @@
 		}
 	%>
 	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

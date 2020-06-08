@@ -10,9 +10,9 @@
 <body>
  
  	<div style="width: 40%; margin-left:40%; margin-top:10%">
-					<img src="image/fb.png" alt="facebook" style="width:8%; padding: 15px ">
-					<img src="image/ig.png" alt="facebook" style="width:8%; padding: 15px ">
-					<img src="image/tw.png" alt="facebook" style="width:8%; padding: 15px ">
+					<img src="image/fb.png" alt="facebook" style="width:10%; padding: 15px ">
+					<img src="image/ig.png" alt="facebook" style="width:10%; padding: 15px ">
+					<img src="image/tw.png" alt="facebook" style="width:10%; padding: 15px ">
 
 			</div>
  

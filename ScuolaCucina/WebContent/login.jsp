@@ -5,6 +5,7 @@
 <head>
    <meta charset="UTF-8">
    <title>Login</title>
+   <link rel="stylesheet" href="css/style.css">
    <style type="text/css">
      <%@ include file="/css/login.css" %>
    </style>
@@ -13,6 +14,8 @@
 <body style="background-size: 100%">
  <div class="container">
 	
+	<br>
+	<a href="index.jsp" class="logo"><img src="image/logo1.png" alt="Cook-Vid19" style="width:90%;max-width:150px"></a>
 	<br>
 	<h2>Login</h2>
 	<%

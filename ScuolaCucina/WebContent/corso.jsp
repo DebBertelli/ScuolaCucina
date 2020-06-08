@@ -20,7 +20,7 @@
 <%@include file="/css/style.css"%>
 </style>
 
-<title>I nostri Corsi</title>
+<title>Corsi</title>
 </head>
 <body>
 

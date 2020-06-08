@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="it.begear.progetto.entity.Corso"%>
+<%@page import="it.begear.progetto.entity.Utente"%>
 <%@page import="it.begear.progetto.entity.Docente"%>
 <%@page import="it.begear.progetto.dao.DocenteDAO"%>
 <%@page import="it.begear.progetto.service.CorsoService"%>
@@ -12,16 +13,7 @@
 <title>Scheda Docente</title>
 <style type="text/css">
 <%@ include file="/css/form.css" %>
-
-input.trasparente{
-	background-color: #C82C02;
-	border: none;
-	outline: none;
-	color: white;
-	padding:5px;
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-}
+<%@ include file="/css/style.css" %>
 </style>
 </head>
 
@@ -33,7 +25,7 @@ input.trasparente{
 		Docente doc = new Docente();
 		Corso c = new Corso();
 	%>
-	<div>
+	<div class="container">
 		<h1><%=corso.getTitolo()%></h1>
 		<%
 			String messaggio = (String) request.getAttribute("messaggio");
@@ -44,12 +36,12 @@ input.trasparente{
 			}
 		%>
 
-		<h4>
+		<h3>
 			Durata:
-			<%=corso.getOre() + "ore"%></h4>
-		<h4>
+			<%=corso.getOre() + "ore"%></h3>
+		<h3>
 			Posti disponibili:
-			<%=corso.getMaxPartecipanti()%></h4>
+			<%=corso.getMaxPartecipanti()%></h3>
 
 		<form action="preferiti-servlet" style="display: inline-block">
 			<input type="hidden" name="id" value="<%=corso.getId()%>"> <input
@@ -57,12 +49,13 @@ input.trasparente{
 				type="submit" value="&hearts; Salva" class="trasparente">
 		</form>
 	</div>
-	
-	<br>
-	
-	<!-- modifica -->
+	<%
+		
+		Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
+		if(isAdmin!=null && isAdmin){
+		%>
 	<div class="container">
-		<h4>Aggiorna dati del corso</h4>
+		<h2>Aggiorna dati del corso</h2>
 		<form action="CorsoServlet" method="get" name="modulo"
 			onsubmit="return valida()">
 			<input type="hidden" name="id" value="<%=corso.getId()%>">
@@ -124,13 +117,16 @@ input.trasparente{
 						id="eMaxPArtecipanti"></span>
 				</div>
 			</div>
-			<input type="hidden" name="azione" value="update">
 			<div class="row">
-				<input type="submit" value="Aggiorna"
-					class="btn btn-blu rounded-pill">
-			</div>
-
+				<div class="col-75">
+					<input type="hidden" name="azione" value="update"> 
+					<input type="submit" value="Aggiorna" class="btn rounded-pill btn-blu">
+				 </div>
+			</div>	 
 		</form>
+		<%
+			}
+		%>
 	</div>
 </body>
 

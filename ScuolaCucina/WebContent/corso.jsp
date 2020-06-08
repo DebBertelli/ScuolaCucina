@@ -14,8 +14,10 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 	<style type="text/css">
 	<%@ include file="/css/divTable.css" %>
+	<%@ include file="/css/style.css" %>
 	</style>
 	
 	<title>I nostri Corsi</title>
@@ -32,15 +34,16 @@
 		}
 	%>
 
-	<h3>I nostri corsi</h3>
+	<h1>I nostri corsi</h1>
 	<%
 		List<Corso> corsi = CorsoService.listaCorsi();
 	%>
-
-	<div class="divTable">
+    
+	<div class="divTableDocente" >
 		<div class="headRow">
 			<div class="divCell">Titolo</div>
 			<div class="divCell">Docente</div>
+			<div class="divCell"align="right">Elimina</div>
 		</div>
 		<%
 			for (Corso c : corsi) {
@@ -52,17 +55,19 @@
 				<a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
 			</div>
 			<div class="divCell">
-			
 				<a href="homeDocente.jsp?id_docente=<%=docente.getId_docente()%>"><%=String.format("%s %s", docente.getNome_docente(), docente.getCognome_docente())%></a>
 			</div>
-			<div class="divCell" align="center">
+			<div class="divCell" align="right">
+			  <div class="elimina">
 				<form action="CorsoServlet" method="get">
 					<input type="hidden" name="id" value="<%=c.getId()%>">
 					<input type="hidden" name="azione" value="delete"> 
-					<input type="submit" value="Elimina" class="btn rounded-pill btn-blu">
+					<input type="button" value="Elimina" class="btn rounded-pill btn-blu">
 				</form>
+				</div>
 			</div>
 		</div>
+
 		<%
 			}
 		Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
@@ -74,7 +79,7 @@
 			<div class="divCell" align="right">
 				<div class="the-icons span3" title="">
 					<a class="button" href="inserisciCorso.jsp?">
-						<i class="demo-icon icon-layers">&#xe800;</i> 
+						<i class='fas fa-arrow-right' ></i>
 						<span class="i-name">Inserisci un nuovo corso</span>
 					</a>
 				</div>

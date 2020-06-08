@@ -8,6 +8,15 @@ input[type=text], select, textarea {
 	resize: vertical;
 	font-family: Arial, Helvetica, sans-serif;
 }
+input[type=email], select, textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+	font-family: Arial, Helvetica, sans-serif;
+}
 
 /* Style the label to display next to the inputs */
 label {
@@ -29,6 +38,7 @@ input[type=submit] {
 	cursor: pointer;
 	float: right;
 	text-align:center;
+	margin-top: 6px;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -58,6 +68,7 @@ input[type=submit] {
 	content: "";
 	display: table;
 	clear: both;
+	
 }
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */

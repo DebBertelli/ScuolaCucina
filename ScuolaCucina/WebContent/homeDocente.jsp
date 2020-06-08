@@ -10,6 +10,10 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Scheda docente</title>
+<style type="text/css">
+<%@ include file="/css/form.css" %>
+<%@ include file="/css/style.css" %>
+</style>
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
@@ -17,46 +21,75 @@
 		int id_docente = Integer.parseInt(request.getParameter("id_docente"));
 		Docente docente = DocenteService.cerca(id_docente);
 	%>
-	<div>
+	<div class="container">
 		<h1><%=docente.getNome_docente() + " " + docente.getCognome_docente()%></h1>
-	</div>
+	
+	    <h3>Email:<%=docente.getEmail_docente()%></h3>
 
-	<h5>Email:</h5>
-
-	<%=docente.getEmail_docente()%>
-
-	<h5>Corsi:</h5>
+	    <h3>Corsi:
 		 <% CorsoDAO corso = new CorsoDAO();
-	 List<Corso> corsi = corso.leggiCorsoD(id_docente);
+	        List<Corso> corsi = corso.leggiCorsoD(id_docente);
 	 
-	 for(Corso c: corsi){ %>
-		 <a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
-		 <br>
-	<% }
-	 %>
-	<hr>
+	        for(Corso c: corsi){ %>
+		    <a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
+		    <br>
+		<%
+		}
+	    %></h3>
+	</div>
+	
+	
 	<!-- modifica -->
-	<h5>Aggiorna dati del docente</h5>
+	<div class="container">
+	  <h2>Aggiorna dati del docente</h2>
 			<form action="docente-servlet" method="get" name="modulo"
 				onsubmit="return valida()">
-				<label></label><input type="hidden" name="id_docente"
-					value="<%=docente.getId_docente()%>">
-				<span id="eId"></span>
-				<label>Nome</label><input type="text" name="nome_docente"
-					placeholder="<%=docente.getNome_docente()%>">
-				<span id="eNome"></span>
-				<br>
-				<label>Cognome</label><input type="text" name="cognome_docente"
-					placeholder="<%=docente.getCognome_docente()%>">
-				<span id="eCognome"></span>
-				<br> <label>E-mail</label><input type="email"
-					name="email_docente" placeholder="<%=docente.getEmail_docente()%>">
-				<span id="eEmail"></span>
-				<br> 
-				<input type="hidden" name="azione" value="aggiorna">
-				<input type="submit" value="Aggiorna"
-					class="btn btn-blu rounded-pill">
-			</form>
+				<input type="hidden" name="id_docente" value="<%=docente.getId_docente()%>">
+			<div class="row">
+				<div class="col-25">
+					<label for="nome_docente">Nome</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-75">
+					<input type="text" id="nome_docente" name="nome_docente"
+						placeholder="Inserici nome" value="<%=docente.getNome_docente()%>" /> <span
+						id="eNome"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="cognome_docente">Cognome</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-75">
+					<input type="text" id="cognome_docente" name="cognome_docente"
+						placeholder="Inserici cognome" value="<%=docente.getCognome_docente()%>" /> <span
+						id="eCognome"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-25">
+					<label for="email">E-mail</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-75">
+					<input type="email" id="eEmail" name="email_docente"
+						placeholder="Inserici mail" value="<%=docente.getEmail_docente()%>" /> <span
+						id="eEmail"></span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-75">
+					<input type="hidden" name="azione" value="aggiorna"> 
+					<input type="submit" value="Aggiorna" class="btn rounded-pill btn-blu">
+				 </div>
+		    </div>
+		</form>
+	</div>
+	
 	<!-- elimina -->
 	<h5 style="display: inline-block;">Elimina</h5>
 	<form style="display: inline-block; padding: 0"

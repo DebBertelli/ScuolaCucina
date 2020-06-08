@@ -15,7 +15,7 @@
 	<body>
 		<jsp:include page="navbar.jsp"></jsp:include>
 		<div class="container">
-			<h4 id="corso">Inserisci un nuovo corso</h4>
+			<h1 id="corso">Inserisci un nuovo corso</h1>
 			<form action="CorsoServlet" method="post" name="modulo2" onsubmit="return valida()">
 				<label>Titolo</label> 
 				<input type="text" name="titolo" placeholder="Inserici titolo"> 
@@ -39,6 +39,7 @@
 				<br> 
 				<label>Max Partecipanti</label> <input type="text" name="max_partecipanti" placeholder="Inserici max participanti"> 
 				<span id="eMaxPArtecipanti"></span>
+				
 				<div class="row">
 					<input type="hidden" name="azione" value="insert"> 
 					<input type="submit" value="Inserisci" class="btn rounded-pill btn-blu">

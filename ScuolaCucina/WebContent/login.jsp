@@ -3,11 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Login</title>
-
+   <meta charset="UTF-8">
+   <style type="text/css">
+     <%@ include file="/css/login.css" %>
+   </style>
 </head>
+
 <body style="background-size: 100%">
+ <div class="container">
 	<h2>Cuciniamolo</h2>
 	<br>
 	<h2>Login</h2>
@@ -29,6 +32,7 @@
 		<input type="submit" value="Login">
 	</form>
 	<a href="registrazione.jsp">Oppure registrati</a>
+	</div>
 	<script>
 		function valida() {
 

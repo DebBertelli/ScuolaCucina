@@ -1,0 +1,35 @@
+@charset "ISO-8859-1";
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: font-family : Arial, Helvetica, sans-serif;
+}
+
+
+input[type=button] {
+	color: #4CAF50;
+	padding: 0; 
+	text-align: center;
+	font-family: font-family:Arial, Helvetica, sans-serif;
+	border: none;
+	background: none;
+}
+
+input.trasparente{
+	background-color: #C82C02;
+	border: none;
+	outline: none;
+	color: white;
+	padding:5px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.i-name{
+	color:red;
+	font-family: font-family : Arial, Helvetica, sans-serif;
+}
+.divTableDocente{
+	 color:  #FFDEAD;
+	 font-family: Arial, Helvetica, sans-serif;
+	 margin-top: 10px;
+}
+

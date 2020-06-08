@@ -8,6 +8,11 @@
 <html>
 <head>
   <meta charset="ISO-8859-1">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <style type="text/css">
+	<%@ include file="/css/style.css" %>
+	<%@ include file="/css/divTable.css" %>
+	</style>
   <title>Docenti</title>
 </head>
 <body>
@@ -22,29 +27,28 @@
 		}
 	%>
 	<h1>Il nostro corpo docenti</h1>
-	<div>
 		<%
 			List<Docente> docenti = DocenteDAO.leggiTutti();
 			for (Docente d : docenti) {
 		%>
-
-		<a href="homeDocente.jsp?id_docente=<%=d.getId_docente()%>">
-		  <%=d.getNome_docente()%>
-		  <%=d.getCognome_docente()%>
-		</a>
-		
-
-		<form action="docente-servlet" method="get">
-			<input type="hidden" name="id_docente" value="<%=d.getId_docente()%>">
-			<input type="hidden" name="azione" value="elimina">
-			<input type="submit" value="&times;" class="btn btn-outline-warning rounded-pill">
-		</form>
-	</div>
+		<div class="divTableDocente" >
+			<div class='fas fa-circle'>
+			  <a href="homeDocente.jsp?id_docente=<%=d.getId_docente()%>"> <%=d.getNome_docente()%>
+				<%=d.getCognome_docente()%></a>
+			</div>
+		</div>
 
 	<%
 		}
 	%>
-	<a href="inserisciDocente.jsp?">&rarr; Inserisci un nuovo docente</a>
+	<div class="the-icons span3" title="">
+					<a class="button" href="inserisciDocente.jsp?">
+						<i class='fas fa-arrow-right' ></i>
+						<span class="i-name">Inserisci un nuovo docente</span>
+					</a>
+				</div>
+	
+	
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>

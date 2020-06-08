@@ -71,7 +71,11 @@
 		
 			}//else
 			%>
-		</div>
+		</div>		
 <jsp:include page="footer.jsp"></jsp:include>			
 </body>
+<script type="text/javascript">
+	<%@ include file="/js/validate.js" %>
+	changeNavSelect("CORSI");
+</script>
 </html>

@@ -55,6 +55,14 @@
 		if(isAdmin!=null && isAdmin){
 		%>
 	<div class="container">
+	 <div>
+				<form action="CorsoServlet" method="get">
+					<input type="hidden" name="id" value="<%=c.getId()%>">
+					<input type="hidden" name="azione" value="delete"> 
+					<input type="submit" value="Elimina" class="btn rounded-pill btn-blu" style="float:left">
+				</form>
+				</div>
+				<br><br>
 		<h2>Aggiorna dati del corso</h2>
 		<form action="CorsoServlet" method="get" name="modulo"
 			onsubmit="return valida()">

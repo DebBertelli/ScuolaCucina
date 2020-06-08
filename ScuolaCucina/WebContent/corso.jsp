@@ -13,19 +13,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
-	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-	<style type="text/css">
-	<%@ include file="/css/divTable.css" %>
-	<%@ include file="/css/style.css" %>
-	</style>
-	
-	<title>I nostri Corsi</title>
+<meta charset="ISO-8859-1">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<style type="text/css">
+<%@include file="/css/divTable.css"%>
+<%@include file="/css/style.css"%>
+</style>
+
+<title>I nostri Corsi</title>
 </head>
 <body>
 
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<%
+		Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
 		String messaggio = (String) request.getAttribute("messaggio");
 		if (messaggio != null) {
 	%>
@@ -38,13 +39,13 @@
 	<%
 		List<Corso> corsi = CorsoService.listaCorsi();
 	%>
-    
-	<div class="divTableDocente" >
+
+	<div class="divTableDocente">
 		<div class="headRow">
 			<div class="divCell">Titolo</div>
 			<div class="divCell">Docente</div>
-			<div class="divCell"align="right">Elimina</div>
-		</div>
+			<div class="divCell" align="right"></div>
+		</div> <!-- headRow -->
 		<%
 			for (Corso c : corsi) {
 				DocenteDAO docenteDoa = new DocenteDAO();
@@ -53,42 +54,46 @@
 		<div class="divRow">
 			<div class="divCell">
 				<a href="homeCorso.jsp?id=<%=c.getId()%>"><%=c.getTitolo()%></a>
-			</div>
+			</div> <!-- divCell -->
 			<div class="divCell">
 				<a href="homeDocente.jsp?id_docente=<%=docente.getId_docente()%>"><%=String.format("%s %s", docente.getNome_docente(), docente.getCognome_docente())%></a>
-			</div>
+			</div> <!-- divCell -->
 			<div class="divCell" align="right">
-			  <div class="elimina">
-				<form action="CorsoServlet" method="get">
-					<input type="hidden" name="id" value="<%=c.getId()%>">
-					<input type="hidden" name="azione" value="delete"> 
-					<input type="button" value="Elimina" class="btn rounded-pill btn-blu">
-				</form>
-				</div>
-			</div>
-		</div>
-
+			<%
+				if (isAdmin != null && isAdmin) {
+			%>
+				<div class="elimina">
+					<form action="CorsoServlet" method="get">
+						<input type="hidden" name="id" value="<%=c.getId()%>"> <input
+							type="hidden" name="azione" value="delete"> <input
+							type="submit" value="Elimina" class="btn rounded-pill btn-blu">
+					</form>
+				</div> <!-- elimina -->
 		<%
-			}
-		Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
-		if(isAdmin!=null && isAdmin){
+				}//if
+		%>
+			</div> <!-- divCell -->
+		</div> <!-- divRow -->
+		<% 
+			}//for
+			if (isAdmin != null && isAdmin) {
 		%>
 		<div class="divRow">
 			<div class="divCell"></div>
 			<div class="divCell"></div>
 			<div class="divCell" align="right">
 				<div class="the-icons span3" title="">
-					<a class="button" href="inserisciCorso.jsp?">
-						<i class='fas fa-arrow-right' ></i>
-						<span class="i-name">Inserisci un nuovo corso</span>
+					<a class="button" href="inserisciCorso.jsp?"> 
+						<i class='fas fa-arrow-right'></i> <span class="i-name">Inserisci un nuovo corso</span>
 					</a>
 				</div>
 			</div>
-		</div>
+		</div> <!-- divRow -->
 		<%
-			}
+			}//if
 		%>
 	</div>
+	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 <script type="text/javascript">
 	<%@ include file="/js/validate.js" %>

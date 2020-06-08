@@ -1,60 +1,64 @@
 @charset "ISO-8859-1";
-.divTable
-	    {
-	      display:  table;
-	      width:auto;
-	      border-spacing:5px;/*cellspacing:poor IE support for  this*/
-	       /* border-collapse:separate;*/
-	    }
-	
-	    .divRow
-	    {
-	      display:table-row;
-	      font-family: Arial, Helvetica, sans-serif;
-	      width:auto;
-	      border-bottom: 2px solid #dee2e6;
-	    }
-	
-	    .divCell
-	    {
-	        float:left;/*fix for  buggy browsers*/
-	        display:table-column;
-	        min-width:180px;
-	        height:25px;
-	       font-family: font-family : Arial, Helvetica, sans-serif;
-	        
-	    }
-	    
-	    .divCell a {
-		    float: left;
-		    text-align: center;
-		    text-decoration: none;
-		    font-family: Arial, Helvetica, sans-serif;
-		    color:black;
-		}
-	
-		.headRow{
-		   font-size: 1.3rem;
-		   font-weight: 400;
-		   text-align: inherit;
-		   vertical-align: top;
-		   border-top: 1px solid #dee2e6;
-		   vertical-align: bottom;
-		   border-bottom: 2px solid #dee2e6;
-		   background-color: #EDA340;
-	       overflow: hidden;
-		   color: white;
-		   padding: 9px 8px;
-		}
-		
-		*, ::after, ::before {
-		    box-sizing: border-box;
-		}
-		
-		a.button {
-		    -webkit-appearance: button;
-		    -moz-appearance: button;
-		    appearance: button;
-		    text-decoration: none;
-		    color: initial;
-		}
+
+.divTable {
+	display: table;
+	width: auto;
+	border-spacing: 5px; /*cellspacing:poor IE support for  this*/
+	/* border-collapse:separate;*/
+}
+
+.divRow {
+	display: table-row;
+	font-family: Arial, Helvetica, sans-serif;
+	width: auto;
+	border-bottom: 2px solid #dee2e6;
+}
+
+.divCell {
+	float: left; /*fix for  buggy browsers*/
+	display: table-column;
+	min-width: 180px;
+	height: 25px;
+	font-family: font-family : Arial, Helvetica, sans-serif;
+}
+
+.divCell a {
+	float: left;
+	text-align: center;
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+}
+
+.headRow {
+	font-size: 1.3rem;
+	font-weight: 400;
+	text-align: inherit;
+	vertical-align: top;
+	border-top: 1px solid #dee2e6;
+	vertical-align: bottom;
+	border-bottom: 2px solid #dee2e6;
+	background-color: #EDA340;
+	overflow: hidden;
+	color: white;
+	padding: 9px 8px;
+}
+
+*, ::after, ::before {
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	border: none;
+	background-color: white;
+	color: green;
+	cursor: pointer;
+}
+
+a.button {
+	-webkit-appearance: button;
+	-moz-appearance: button;
+	appearance: button;
+	text-decoration: none;
+	color: initial;
+}

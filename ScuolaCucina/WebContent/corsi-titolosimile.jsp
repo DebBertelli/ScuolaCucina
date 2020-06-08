@@ -17,6 +17,7 @@
 <title>Risultati ricerca</title>
 </head>
 <body>
+<jsp:include page="navbar.jsp"></jsp:include>
 <%
 			Boolean isAdmin = (Boolean) session.getAttribute(Utente.IS_ADMIN);
 			List<Corso> corsi = (List<Corso>)request.getAttribute("corsi");

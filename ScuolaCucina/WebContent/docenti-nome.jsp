@@ -42,7 +42,7 @@
 				%>
 					<div class="divRow">
 						<div class="divCell">
-							<a href="homeDocente.jsp?id=<%=d.getId_docente()%>"><%=d.getNome_docente()%> <%=d.getCognome_docente()%></a> 
+							<a href="homeDocente.jsp?id_docente=<%=d.getId_docente()%>"><%=d.getNome_docente()%> <%=d.getCognome_docente()%></a> 
 						</div>
 						<div class="divCell">
 						<%

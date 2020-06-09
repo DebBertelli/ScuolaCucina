@@ -5,11 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>ERROR</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-<jsp:include page="navbar.jsp"></jsp:include>
+
 <body style="background-size: 100%">
 	<br>
-	<h1 class="errore">ERRORE</h1>
+	<h1>ERRORE</h1>
 	<br>
 	<%
 		String messaggio = (String) request.getAttribute("messaggio");
@@ -19,7 +20,7 @@
 	<%
 		}
 	%>
-	<a href="index.jsp" class="bottone">Torna alla home</a>
-<jsp:include page="footer.jsp"></jsp:include>
+	<a href="index.jsp">Torna alla home</a>
+
 </body>
 </html>

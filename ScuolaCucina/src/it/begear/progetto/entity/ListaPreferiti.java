@@ -31,7 +31,7 @@ private HashSet<Corso> corsiPreferiti = new HashSet<Corso>();
 
 	@Override
 	public String toString() {
-		return "ListaPreferiti [albumPreferiti=" + corsiPreferiti + "]";
+		return "ListaPreferiti [corsiPreferiti=" + corsiPreferiti + "]";
 	}
 
 }

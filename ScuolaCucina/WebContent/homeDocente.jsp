@@ -50,17 +50,17 @@
 	<div class="container">
 	<!-- elimina -->
 	<div>
-	<form action="docente-servlet" method="get">
-		<input type="hidden" name="id_docente" value="<%=id_docente%>">
-		<!-- bottone elimina -->
-		<input type="hidden" name="azione" value="elimina"> <input
-			type="submit" value="Elimina" class="btn btn-warning rounded-pill" style="float:left">
+		<form action="docente-servlet" method="get">
+			<input type="hidden" name="id_docente" value="<%=id_docente%>">
+			<!-- bottone elimina -->
+			<input type="hidden" name="azione" value="elimina"> 
+			<input type="submit" value="Elimina" class="btn btn-warning rounded-pill" style="float:left">
 		</form>
-		</div>
-		<br>
-		<br>
-		<br>
-		<br>
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 		<!-- modifica -->
 	  <h2>Aggiorna dati del docente</h2>
 			<form action="docente-servlet" method="get" name="modulo"

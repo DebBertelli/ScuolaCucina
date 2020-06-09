@@ -133,7 +133,7 @@ public class UtenteServlet extends HttpServlet {
 						sessione.invalidate();
 					}
 					
-					//Link alla login.jsp
+					//Link alla home
 					response.sendRedirect("index.jsp");
 					
 				}

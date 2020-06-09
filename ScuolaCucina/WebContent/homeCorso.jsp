@@ -22,8 +22,6 @@
 	<%
 		int id = Integer.parseInt(request.getParameter("id"));
 		Corso corso = CorsoService.cerca(id);
-		Docente doc = new Docente();
-		Corso c = new Corso();
 	%>
 	<div class="container">
 		<h1><%=corso.getTitolo()%></h1>
@@ -57,7 +55,7 @@
 	<div class="container">
 	 <div>
 				<form action="CorsoServlet" method="get">
-					<input type="hidden" name="id" value="<%=c.getId()%>">
+					<input type="hidden" name="id" value="<%=corso.getId()%>">
 					<input type="hidden" name="azione" value="delete"> 
 					<input type="submit" value="Elimina" class="btn rounded-pill btn-blu" style="float:left">
 				</form>
